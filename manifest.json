@@ -1,0 +1,24 @@
+{
+    "manifest_version":2,
+    "name": "Swiftionary",
+    "description":"Swift Dictionary",
+    "version":"2",
+    "icons": {
+        "16":"slogo_16.png",
+        "48":"slogo_48.png",
+        "128":"slogo_128.png"  
+    },
+    "browser_action": {
+        "default":"slogo.png"
+       
+    },
+    "background":{
+        "scripts": ["conMenus.js"],
+        "persistent": false
+    },
+    "permissions":[
+        "storage",
+        "notifications",
+        "contextMenus"
+    ]
+}
