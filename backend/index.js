@@ -95,10 +95,3 @@ app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 });
 
-app.get("/", function(req, res) {
-  res.send({ express: "hello" });
-});
-
-app.get("/of_course", function(req, res) {
-  res.send({ express: string });
-});
