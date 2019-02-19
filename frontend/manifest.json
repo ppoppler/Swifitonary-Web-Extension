@@ -20,6 +20,5 @@
         "storage",
         "notifications",
         "contextMenus"
-    ],
-    "proxy": "localhost:5000"
+    ]
 }
