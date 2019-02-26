@@ -10,7 +10,6 @@
     },
     "browser_action": {
         "default":"slogo.png"
-       
     },
     "background":{
         "scripts": ["conMenus.js"],
