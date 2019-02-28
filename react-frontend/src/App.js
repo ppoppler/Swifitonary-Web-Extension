@@ -5,6 +5,7 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SwiftionaryText from "./images/Swiftionary Text.png";
 import ExtensionTab from "./components/ExtensionTab";
+import FramelessWindow from "./frameless_window";
 
 
 class App extends Component {
