@@ -100,8 +100,9 @@ unirest.get("https://montanaflynn-spellcheck.p.rapidapi.com/check/?text="+word)
 .header("X-RapidAPI-Key", "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d")
 .end(function (result) {
  console.log(result.body);
+ 
 holdStuff = result.body //hold stuff is a global variable 
- console.log("The original search is: "+holdStuff.original); //print out the first attribute of the object returned
+ console.log("The word search is: "+holdStuff.original); //print out the first attribute of the object returned
  console.log("The suggestion is: "+holdStuff.suggestion); //print out the second attribute of the object returned
  console.log("The corrections are: "+JSON.stringify(holdStuff.corrections)); //the third attribute is a json object, convert json object to string 
  res.send(result.body);
@@ -109,6 +110,31 @@ holdStuff = result.body //hold stuff is a global variable
 });
 });
 
+
+/**
+ * Urban Dictionary GET Request from an UrbanDictionaryAPI
+ */
+app.get("/urban",function(req,res){
+  const word = req.query.word; //to do multiple words put "+" in between the words 
+  unirest.get("https://mashape-community-urban-dictionary.p.rapidapi.com/define?term="+word)
+  .header("X-RapidAPI-Key", "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d")
+  .end(function (result) {   
+    holdStuff =result;
+   var urbanInfo="";
+   urbanInfo+="WORD: "+req.query.word+" ";
+for( i=0;i<holdStuff.body.list.length;i++){
+  if(i==3){ //we only want the first three definitions and examples
+    break;
+  }
+
+  urbanInfo+="DEFINITION: "+holdStuff.body.list[i].definition +" EXAMPLE SENTENCE: " +holdStuff.body.list[i].example+"\n";
+
+}
+res.send(urbanInfo);
+console.log(urbanInfo);
+
+  });
+});
 
 
 
