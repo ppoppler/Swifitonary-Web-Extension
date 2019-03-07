@@ -4,12 +4,10 @@
   "name": "React Frontend",
   "description": "Frontend template for Swiftionary",
   "version": "0.0.1",
-
-  "browser_action": {
-    "default":"slogo.png",
-    "default_popup": "index.html",
-    "default_title": "Open the popup"
-  },
+  "content_scripts": [{
+    "js": ["content.js"],
+    "matches":["<all_urls>"]
+  }],
   "icons": {
     "16": "slogo_16.png",
     "48": "slogo_48.png",
@@ -17,8 +15,8 @@
   },
   "content_security_policy": "script-src 'self' 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; object-src 'self'",
   "background": {
-    "scripts": ["conMenus.js"],
-    "persistent": false
+    "scripts": ["background.js"]
   },
-  "permissions": ["storage", "notifications", "contextMenus"]
+  "permissions": ["contextMenus", "tabs"],
+  "web_accessible_resources": ["*.html"]
 }

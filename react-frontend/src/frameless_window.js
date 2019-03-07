@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 
 // window.onfocus = function() {
 //   console.log("focus");
@@ -26,18 +25,15 @@ import './index.css';
 // };
 
 export default class FramelessWindow extends React.Component {
-
   render() {
     return (
       <div>
-        <h2>this.props.word</h2>
-        <h3>this.props.pronunciation</h3>
+        <h2>{this.props.word}</h2>
+        <h3>{this.props.pronunciation}</h3>
         <p>
-          <i>this.props.speechType</i>
+          <i>{this.props.speechType}</i>
         </p>
-        <p>
-          this.props.definition
-        </p>
+        <p>{this.props.definition}</p>
         <br />
         <br />
         <button id="close-window-button">Close Window</button>
@@ -46,5 +42,12 @@ export default class FramelessWindow extends React.Component {
   }
 }
 
-ReactDOM.render(<FramelessWindow word="Search" pronunciation="hello"
-speechType="verb" definition="to look for something"/>, document.getElementById('inner-content'));
+// ReactDOM.render(
+//   <FramelessWindow
+//     word="Search"
+//     pronunciation="hello"
+//     speechType="verb"
+//     definition="to look for something"
+//   />,
+//   document.getElementById("inner-content")
+// );
