@@ -1,3 +1,5 @@
+/* global chrome */
+
 chrome.runtime.onMessage.addListener(request => {
   if (request.type === "getHeadlines") {
     document.body.innerHTML += `<dialog style="height:40%">
@@ -16,3 +18,11 @@ chrome.runtime.onMessage.addListener(request => {
     });
   }
 });
+
+chrome.runtime.onMessage.addListener((selectedText)=>{
+  if(selectedText = 'report_back'){
+    document.getElementById(document.getElementById("word").body = "report back");
+  }
+});
+
+
