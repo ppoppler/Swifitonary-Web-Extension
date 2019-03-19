@@ -1,5 +1,6 @@
 /* global chrome */
 import React, { Component } from "react";
+import {getDefinition} from "./BackendHelpers";
 
 export default class Data extends Component {
   state = {
@@ -26,6 +27,8 @@ export default class Data extends Component {
       if (msg.type === "setMessage") {
         if (this.state.received === false)
           this.setState({ text: msg.body, received: true });
+          const res = getDefinition(msg.body);
+          console.log("ok" + res);
       }
     }
   }
@@ -34,11 +37,8 @@ export default class Data extends Component {
     this.sendRequest();
     chrome.runtime.onMessage.removeListener(this.handleMessage.bind(this));
     return (
-      <div className="App">
-        <h1 id="word" className="App-title">
-          {this.state.domain}
-        </h1>
-        <div>{this.state.text}</div>
+      <div className="container main-def">
+        <div className="Montserrat">{this.state.text}</div>
       </div>
     );
   }

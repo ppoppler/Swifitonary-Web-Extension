@@ -26,6 +26,7 @@ const PORT = process.env.PORT || 5000;
  * Define GET Request from WordsAPI
  */
 app.get("/define", function(req, res) {
+  console.log("DEFINE");
   const word = req.query.word;
   let definition;
   unirest
@@ -135,9 +136,6 @@ console.log(urbanInfo);
 
   });
 });
-
-
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
