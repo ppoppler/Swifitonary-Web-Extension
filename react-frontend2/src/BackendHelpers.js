@@ -1,8 +1,12 @@
 import axios from "axios";
 
-export const getDefinition = word => {
-    console.log(word);
-  axios.get("/define", word).then(res => {
+export const getDefinition = (word,response) => {
+  console.log(word);
+  return axios.get("http://localhost:5000/define", { params: { word: word } })
+    .then(res => {
       return res.data;
-  });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };

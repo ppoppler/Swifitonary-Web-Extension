@@ -28,6 +28,7 @@ const PORT = process.env.PORT || 5000;
 app.get("/define", function(req, res) {
   console.log("DEFINE");
   const word = req.query.word;
+  console.log(word);
   let definition;
   unirest
     .get(`https://wordsapiv1.p.mashape.com/words/${word}`)
