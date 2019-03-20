@@ -4,7 +4,7 @@ import { getDefinition } from "./BackendHelpers";
 
 export default class Definition extends Component {
   state = {
-    text: "hello",
+    text: "",
     definition: null
   };
 
@@ -28,24 +28,29 @@ export default class Definition extends Component {
   }
 
   render() {
-    chrome.runtime.onMessage.removeListener(this.handleMessage.bind(this));
     return (
       <div className="container main-def">
         <h2 className="Montserrat">{this.state.text}</h2>
-        {this.state.definition !== null &&
+        {this.state.definition !== null && (
           <div>
-            <h3 className="Montserrat">{this.state.definition.pronunciation.all !== null ? this.state.definition.pronunciation.all : this.state.definition.pronunciation}</h3>
+            {console.log(this.state.definition.pronunciation===undefined)}
+            {this.state.definition.pronunciation !== undefined && 
+              <h3 className="Montserrat">
+                {this.state.definition.pronunciation.all !== null
+                  ? this.state.definition.pronunciation.all
+                  : this.state.definition.pronunciation}
+              </h3>
+            }
             <h3 className="Montserrat">Defintions</h3>
-            {
-              this.state.definition.results.map((info) =>
-                <div>
-                  <hr />
-                  <p className="Montserrat">{info.partOfSpeech}</p>
-                  <p className="Montserrat">{info.definition}</p>
-                </div>
-              )}
+            {this.state.definition.results.map(info => (
+              <div>
+                <hr />
+                <p className="Montserrat">{info.partOfSpeech}</p>
+                <p className="Montserrat">{info.definition}</p>
+              </div>
+            ))}
           </div>
-        }
+        )}
       </div>
     );
   }
