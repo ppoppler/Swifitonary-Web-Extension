@@ -1,12 +1,13 @@
 import {BrowserRouter, Route} from 'react-router-dom';
 import React, {Component} from 'react';
-import Data from './Data';
+import Definition from './Definition';
 
 
 const Router = () => {
     return(
         <BrowserRouter basename={process.env.PUBLIC_URL}>
-            <Route path="/" render={()=><Data/>}></Route>
+        <Route path="/" render={() => <Definition />}></Route>
+        <Route path="/synonym"></Route>
         </BrowserRouter>
     )
 }

@@ -35,10 +35,10 @@ chrome.contextMenus.onClicked.addListener(clickedData => {
   if (clickedData.menuItemId === "Definition" && clickedData.selectionText) {
     chrome.runtime.onMessage.addListener((request)=>{
       if(request.target==="background"){
-        if(request.type === "message"){
+        if(request.type === "definition"){
           chrome.runtime.sendMessage({
             target: 'app',
-            type: 'setMessage',
+            type: 'definition',
             body: clickedData.selectionText
           });
         }

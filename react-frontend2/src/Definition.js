@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { getDefinition } from "./BackendHelpers";
 
-export default class Data extends Component {
+export default class Definition extends Component {
   state = {
     text: "hello",
     definition: null
@@ -14,12 +14,12 @@ export default class Data extends Component {
   }
 
   sendRequest() {
-    chrome.runtime.sendMessage({ target: "background", type: "message" });
+    chrome.runtime.sendMessage({ target: "background", type: "definition" });
   }
 
   async handleMessage(msg) {
     if (msg.target === "app") {
-      if (msg.type === "setMessage") {
+      if (msg.type === "definition") {
         const definition = await getDefinition(msg.body);
         console.log(definition);
         this.setState({ text: msg.body, definition: definition });
@@ -34,7 +34,7 @@ export default class Data extends Component {
         <h2 className="Montserrat">{this.state.text}</h2>
         {this.state.definition !== null &&
           <div>
-            <h3 className="Montserrat">{this.state.definition.pronunciation.all!==null ? this.state.definition.pronunciation.all : this.state.definition.pronunciation}</h3>
+            <h3 className="Montserrat">{this.state.definition.pronunciation.all !== null ? this.state.definition.pronunciation.all : this.state.definition.pronunciation}</h3>
             <h3 className="Montserrat">Defintions</h3>
             {
               this.state.definition.results.map((info) =>
@@ -44,7 +44,6 @@ export default class Data extends Component {
                   <p className="Montserrat">{info.definition}</p>
                 </div>
               )}
-            {/* <div className="Montserrat">{this.state.definition.results[0].definition}</div> */}
           </div>
         }
       </div>
