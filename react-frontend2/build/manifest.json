@@ -1,0 +1,22 @@
+{
+  "name": "Headline Fetcher",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "description": "Retrieves headlines relevant to the website you are currently on",
+  "content_scripts": [{
+    "js": [ "content.js"],
+    "matches": [ "<all_urls>"]
+   }],
+  "background": {
+    "scripts": ["background.js"]
+   },
+   "icons": {
+    "16":"slogo_16.png",
+    "48":"slogo_48.png",
+    "128":"slogo_128.png"  
+},
+   "permissions": ["contextMenus", "tabs","storage",
+    "notifications", "http://localhost/*"],
+   "web_accessible_resources" : ["*.html"],
+   "content_security_policy": "script-src 'self' 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; object-src 'self'"
+}
