@@ -141,3 +141,20 @@ console.log(urbanInfo);
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 });
+
+app.get("/wiki",function(req,res){
+  const searchTerm = req.query.word; //to do multiple words put "+" in between the words 
+  unirest.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&continue=&titles= " + searchTerm +"&exsentences=6")
+  .end(function(result){
+    holdStuff = result;
+    var WikiInfo="";
+    WikiInfo+="Item: " + req.query.word + "";
+
+    WikiInfo+="Info: " + holdStuff;
+
+});
+
+var pageId=Object.keys(holdStuff.body.query.pages)[0];
+res.send(holdStuff.body.query.pages[pageId].extract);
+
+  });
