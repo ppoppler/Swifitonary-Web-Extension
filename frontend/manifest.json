@@ -18,6 +18,10 @@
     "permissions":[
         "storage",
         "notifications",
-        "contextMenus"
-    ]
+        "contextMenus",
+        "management"
+    ],
+    
+
+    "options_page":"switches.html"
 }

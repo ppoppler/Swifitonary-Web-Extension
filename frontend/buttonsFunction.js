@@ -1,5 +1,6 @@
 var wrapper = document.querySelector('.wrapper');
-var button = document.querySelector('.button');
+var button = document.getElementById('.button');
+
 var ripple = document.querySelector('.ripple');
 
 
@@ -38,11 +39,54 @@ var wrapper8 = document.querySelector('.wrapper8');
 var button8 = document.querySelector('.button8');
 var ripple8 = document.querySelector('.ripple8');
 
+// function settingSelection(){
+//   var checkBox = document.getElementById("myonoffswitch2");
+//   checkBox.checked=false;
+// };
+
+document.getElementById("myonoffswitch").addEventListener("click", switch1Function); //used to call our function that will sync the new preferences
+
+function switch1Function(){ //function to set the switch and sync it 
+  var enabled1;
+  // Get the checkbox
+  var checkBox = document.getElementById("myonoffswitch"); //connect to the switch
+  // Get the output text
+  //var text = document.getElementById("text");
+
+//checkBox.checked=true;
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked){
+     enabled1 = "true";
+
+    chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true 
+
+    chrome.runtime.sendMessage({"option1": enabled1}, function(response) { //this could possibly work for message passing 
+
+    });
+   // chrome.runtime.reload();
+    chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set 
+      console.log("The value is "+result.option1); //prints out true because that is the value assigned to our key,option1
+     // alert(result.option1);
+     console.log("the console says the val is true");
+  });
+   // text.style.display = "block";
+
+  } else {
+   enabled1 = "false";
+   chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false 
+   chrome.storage.sync.get(["option1"],function(result){
+
+     console.log("The value is "+result.option1); //for debugging, prints out false 
+
+    console.log("it is false");      //text.style.display = "none";
+  });
+}
+};
 //for the first button 
-button.addEventListener('click', function (e) {
+button.addEventListener("click", function(e) {
   var top = button.offsetTop + e.offsetY;
   var left = button.offsetLeft + e.offsetX;
-
+//console.log("event listener function");
   Object.assign(ripple.style, {
     top: top + 'px',
     left: left + 'px' });
@@ -51,11 +95,12 @@ button.addEventListener('click', function (e) {
   wrapper.classList.toggle('dark');
 });
 
+
 //for button 2 
 button2.addEventListener('click', function (e) {
   var top2 = button2.offsetTop + e.offsetY;
   var left2 = button2.offsetLeft + e.offsetX;
-
+console.log("yes");
   Object.assign(ripple2.style, {
     top2: top2 + 'px',
     left2: left2 + 'px' });
@@ -136,3 +181,8 @@ button8.addEventListener('click', function (e) {
 
   wrapper8.classList.toggle('dark');
 });
+// chrome.storage.local.set({"Test":"hello"});
+// chrome.storage.local.get(["Test"],function(result){
+//   console.log("The value is"+result.key);
+//   alert(result.Test);
+//});
