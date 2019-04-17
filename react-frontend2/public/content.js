@@ -1,6 +1,6 @@
 /* global chrome */
-
-chrome.runtime.onMessage.addListener(request => {
+var port=chrome.runtime.connect({name:"pDefinition"});
+port.onMessage.addListener(request => {
   if (request.type === "getHeadlines") {
     document.body.innerHTML += `<dialog style="height:40%">
         <iframe id="headlineFetcher"style="height:100%"></iframe>
@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener(request => {
   }
 });
 
-chrome.runtime.onMessage.addListener((selectedText)=>{
+port.onMessage.addListener((selectedText)=>{
   if(selectedText = 'report_back'){
     document.getElementById(document.getElementById("word").body = "report back");
   }

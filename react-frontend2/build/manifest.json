@@ -10,11 +10,6 @@
   "background": {
     "scripts": ["background.js"]
    },
-   "icons": {
-    "16":"slogo_16.png",
-    "48":"slogo_48.png",
-    "128":"slogo_128.png"  
-},
    "permissions": ["contextMenus", "tabs","storage",
     "notifications", "http://localhost/*"],
    "web_accessible_resources" : ["*.html"],

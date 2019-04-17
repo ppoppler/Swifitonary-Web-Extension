@@ -31,9 +31,11 @@ chrome.contextMenus.create({
 //   }
 // });
 
-chrome.contextMenus.onClicked.addListener(clickedData => {
-  if (clickedData.menuItemId === "Definition" && clickedData.selectionText) {
-    chrome.runtime.onMessage.addListener((request)=>{
+chrome.runtime.onConnect.addListener(function(port) {
+  console.assert(port.name=="pDefinition");
+  port.onMessage.addListener(function(msg) {
+  if (msg.menuItemId === "Definition") {
+    port.onMessage.addListener((request)=>{
       if(request.target==="background"){
         if(request.type === "definition"){
           chrome.runtime.sendMessage({
@@ -44,18 +46,9 @@ chrome.contextMenus.onClicked.addListener(clickedData => {
         }
       }
     });
-    
-    chrome.windows.create({
-      url: chrome.runtime.getURL("index.html"),
-      //type: "normal"
-      type: "popup",
-      width: 400,
-      height: 400
-    });
-    
   }
+  })
 });
-
 
 
 // chrome.contextMenus.onClicked.addListener(tab => {

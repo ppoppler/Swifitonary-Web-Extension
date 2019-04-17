@@ -55,32 +55,30 @@ function switch1Function(){ //function to set the switch and sync it
 
 //checkBox.checked=true;
   // If the checkbox is checked, display the output text
+  var port = chrome.runtime.connect({name: "conHandler"});
   if (checkBox.checked){
-     enabled1 = "true";
+    enabled1 = "true";
 
-    chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true 
+   chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true 
 
-    chrome.runtime.sendMessage({"option1": enabled1}, function(response) { //this could possibly work for message passing 
+   port.postMessage({checkerino: "t"});
+ 
+   chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set 
+     console.log("The value is "+result.option1); //prints out true because that is the value assigned to our key,option1
+    // alert(result.option1);
+    console.log("the console says the val is true");
+ });
+  // text.style.display = "block";
 
-    });
-   // chrome.runtime.reload();
-    chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set 
-      console.log("The value is "+result.option1); //prints out true because that is the value assigned to our key,option1
-     // alert(result.option1);
-     console.log("the console says the val is true");
-  });
-   // text.style.display = "block";
+ } 
+ else {
+  enabled1 = "false";
+  chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false 
 
-  } else {
-   enabled1 = "false";
-   chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false 
-   chrome.storage.sync.get(["option1"],function(result){
+  port.postMessage({checkerino: "f"});
 
-     console.log("The value is "+result.option1); //for debugging, prints out false 
-
-    console.log("it is false");      //text.style.display = "none";
-  });
 }
+
 };
 //for the first button 
 button.addEventListener("click", function(e) {

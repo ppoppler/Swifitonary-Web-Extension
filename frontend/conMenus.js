@@ -30,9 +30,6 @@ chrome.storage.sync.get(["option1"],function(result){ //or could try nesting mul
 
 
 
-
-
-
 //console.log("passed the if statements");
 chrome.contextMenus.create( {
     id:"Synonym",
@@ -106,3 +103,23 @@ function changeMenu(firstOption){
     }
 
 };
+
+    chrome.runtime.onConnect.addListener(function(port) {
+        console.assert(port.name == "conHandler");
+        port.onMessage.addListener(function(msg) {
+          if (msg.checkerino == "t")
+            {
+                chrome.contextMenus.create( {
+                    id:"Definition",
+                    title:"Definition",
+                    parentId:"Swift",
+                    contexts:["selection"]
+                })
+            }
+          else if (msg.checkerino == "f")
+          {
+            chrome.contextMenus.remove("Definition");
+          }
+           
+        });
+      });
