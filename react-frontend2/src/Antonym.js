@@ -21,7 +21,6 @@ export default class Antonym extends Component {
     if (msg.target === "app") {
       if (msg.type === "antonym") {
         const antonym = await getAntonym(msg.body);
-        console.log(antonym);
         this.setState({ text: msg.body, antonym: antonym });
       }
     }
@@ -33,20 +32,11 @@ export default class Antonym extends Component {
         <h2 className="Montserrat">{this.state.text}</h2>
         {this.state.antonym !== null && (
           <div>
-            {console.log(this.state.antonym.pronunciation===undefined)}
-            {this.state.antonym.pronunciation !== undefined && 
-              <h3 className="Montserrat">
-                {this.state.antonym.pronunciation.all !== null
-                  ? this.state.antonym.pronunciation.all
-                  : this.state.antonym.pronunciation}
-              </h3>
-            }
             <h3 className="Montserrat">Antonym</h3>
-            {this.state.antonym.results.map(info => (
+            {this.state.antonym.antonyms.map(info => (
               <div>
                 <hr />
-                <p className="Montserrat">{info.partOfSpeech}</p>
-                <p className="Montserrat">{info.antonym}</p>
+                <p className="Montserrat">{JSON.stringify(info)}</p>
               </div>
             ))}
           </div>

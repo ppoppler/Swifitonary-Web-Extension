@@ -12,6 +12,7 @@ const Router = () => {
         <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Route path="/" render={() => <Definition />}></Route>
         <Route path="/" render={() => <Synonym />}></Route>
+        <Route path="/" render={() => <Antonym />}></Route>
         <Route path="/" render={() => <SpellCheck />}></Route>
         <Route path="/" render={() => <Urban />}></Route>
         </BrowserRouter>

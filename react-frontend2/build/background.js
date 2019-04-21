@@ -124,7 +124,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
     }, (window) => {windowIDs.push(window.id);
     });
 
-    await sleep(200);
+    await sleep(500);
 
     await chrome.runtime.sendMessage({
       target: "app",
