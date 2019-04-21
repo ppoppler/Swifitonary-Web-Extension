@@ -34,10 +34,9 @@ app.get("/define", function(req, res) {
     .get(`https://wordsapiv1.p.mashape.com/words/${word}`)
     .header(
       "X-Mashape-Key",
-      "0339b5007bmshc2b0c44dc045fdep1e9fd9jsn9c50eeaea8b8"
+      "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d"
     )
     .end(function(result) {
-      console.log(result.body);
       res.send(result.body);
     });
 });
@@ -46,12 +45,14 @@ app.get("/define", function(req, res) {
  * Synonym GET Request from WordsAPI
  */
 app.get("/synonym", function(req, res) {
+  console.log ("SYNON");
   const word = req.query.word;
+  console.log(word);
   unirest
     .get(`https://wordsapiv1.p.mashape.com/words/${word}/synonyms`)
     .header(
       "X-Mashape-Key",
-      "0339b5007bmshc2b0c44dc045fdep1e9fd9jsn9c50eeaea8b8"
+      "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d"
     )
     .end(function(result) {
       console.log(result.body);
@@ -68,7 +69,7 @@ app.get("/antonym", function(req, res) {
     .get(`https://wordsapiv1.p.mashape.com/words/${word}/antonyms`)
     .header(
       "X-Mashape-Key",
-      "0339b5007bmshc2b0c44dc045fdep1e9fd9jsn9c50eeaea8b8"
+      "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d"
     )
     .end(function(result) {
       console.log(result.body);
@@ -122,18 +123,18 @@ app.get("/urban",function(req,res){
   .header("X-RapidAPI-Key", "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d")
   .end(function (result) {   
     holdStuff =result;
-   var urbanInfo="";
-   urbanInfo+="WORD: "+req.query.word+" ";
-for( i=0;i<holdStuff.body.list.length;i++){
-  if(i==3){ //we only want the first three definitions and examples
-    break;
-  }
+  //  var urbanInfo="";
+  //  urbanInfo+="WORD: "+req.query.word+" ";
+// for( i=0;i<holdStuff.body.list.length;i++){
+//   if(i==3){ //we only want the first three definitions and examples
+//     break;
+//   }
 
-  urbanInfo+="DEFINITION: "+holdStuff.body.list[i].definition +" EXAMPLE SENTENCE: " +holdStuff.body.list[i].example+"\n";
+//   urbanInfo+="DEFINITION: "+holdStuff.body.list[i].definition +" EXAMPLE SENTENCE: " +holdStuff.body.list[i].example+"\n";
 
-}
-res.send(urbanInfo);
-console.log(urbanInfo);
+// }
+res.send(result.body);
+console.log(result.body);
 
   });
 });

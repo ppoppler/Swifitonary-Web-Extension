@@ -40,8 +40,10 @@ export default class Definition extends Component {
                   ? this.state.definition.pronunciation.all
                   : this.state.definition.pronunciation}
               </h3>
+              
             }
-            <h3 className="Montserrat">Defintions</h3>
+            <h3 className="Montserrat">Definitions</h3>
+            
             {this.state.definition.results.map(info => (
               <div>
                 <hr />
