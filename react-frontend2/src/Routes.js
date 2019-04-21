@@ -1,5 +1,5 @@
 import {BrowserRouter, Route} from 'react-router-dom';
-import React, {Component} from 'react';
+import React from 'react';
 import Definition from './Definition';
 import Antonym from './Antonym';
 import Synonym from './Synonym';
@@ -13,7 +13,7 @@ const Router = () => {
         <Route path="/" render={() => <Definition />}></Route>
         <Route path="/" render={() => <Synonym />}></Route>
         <Route path="/" render={() => <SpellCheck />}></Route>
-        {/* <Route path="/" render={() => <Urban />}></Route> */}
+        <Route path="/" render={() => <Urban />}></Route>
         </BrowserRouter>
     )
 }

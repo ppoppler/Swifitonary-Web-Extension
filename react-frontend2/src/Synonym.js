@@ -21,7 +21,6 @@ export default class Synonym extends Component {
     if (msg.target === "app") {
       if (msg.type === "synonym") {
         const synonym = await getSynonym(msg.body);
-        console.log(synonym);
         this.setState({ text: msg.body, synonym: synonym });
       }
     }
@@ -34,12 +33,12 @@ export default class Synonym extends Component {
         {this.state.synonym !== null && (
           <div>
             <h3 className="Montserrat">Synonym</h3>
-            {this.state.synonym.synonyms ? this.state.synonym.synonyms.map(info => (
+            {this.state.synonym.synonyms.map(info => (
               <div>
                 <hr />
                 <p className="Montserrat">{JSON.stringify(info)}</p>
               </div>
-            )) : null}
+            ))}
           </div>
         )}
       </div>

@@ -2,7 +2,8 @@
 import React, { Component } from "react";
 import { getspellCheck } from "./BackendHelpers";
 
-export default class spellCheck extends Component {
+export default class spellCheck extends Component 
+{
   state = {
     text: "",
     spellcheck: null
@@ -38,7 +39,12 @@ export default class spellCheck extends Component {
                 <hr />
                 <p className="Montserrat">{JSON.stringify(this.state.spellcheck.suggestion)}</p>
               </div>
-            )
+            {/* {this.state.spellcheck.corrections..map(info => (
+              <div>
+                <hr />
+                <p className="Montserrat">{JSON.stringify(info)}</p>
+              </div>
+            ))} */}
           </div>
         )}
       </div>
