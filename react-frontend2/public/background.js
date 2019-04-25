@@ -42,6 +42,13 @@ chrome.contextMenus.create({
   contexts: ["selection"]
 });
 
+chrome.contextMenus.create({
+  id: "Wiki",
+  title: "Wiki",
+  parentId: "Swift",
+  contexts: ["selection"]
+});
+
 // chrome.contextMenus.create({
 //   id: "Hello",
 //   title:"Hello",
@@ -152,16 +159,13 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
     }, (window) => {windowIDs.push(window.id);
     });
 
-    await sleep(200);
+    await sleep(500);
 
     await chrome.runtime.sendMessage({
       target: "app",
       type: "urban",
       body: clickedData.selectionText
     });
-
-    
-    
   }
 });
 
@@ -187,6 +191,33 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
     await chrome.runtime.sendMessage({
       target: "app",
       type: "spellcheck",
+      body: clickedData.selectionText
+    });
+    
+  }
+});
+
+chrome.contextMenus.onClicked.addListener(async (clickedData) => {
+  if (clickedData.menuItemId === "Wiki" && clickedData.selectionText) {
+
+    windowIDs.forEach(id => 
+      {chrome.windows.remove(id);
+      var index = windowIDs.indexOf(id);
+      if(index> -1) windowIDs.splice(index,1);});
+
+    chrome.windows.create({
+      url: chrome.runtime.getURL("index.html"),
+      type: "popup",
+      width: 400,
+      height: 600
+    }, (window) => {windowIDs.push(window.id);
+    });
+
+    await sleep(500);
+
+    await chrome.runtime.sendMessage({
+      target: "app",
+      type: "wiki",
       body: clickedData.selectionText
     });
     
@@ -344,23 +375,31 @@ chrome.runtime.onConnect.addListener(function(port) {
   });
 });
 
-// chrome.contextMenus.onClicked.addListener(tab => {
-//   chrome.runtime.sendMessage({ type: "message" });
-// });
+chrome.runtime.onConnect.addListener(function(port) {
+  console.assert(port.name == "pWiki");
+  port.onMessage.addListener(function(msg) {
+    if (msg.menuItemId === "Wiki" && msg.selectionText) {
+      chrome.runtime.sendMessage({
+        target: "app",
+        type: "wiki",
+        body: msg.selectionText
+      });
 
-// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//   if (request.type === "message") {
-//     chrome.windows.create({
-//       url: chrome.runtime.getURL("index.html"),
-//       //type: "normal"
-//       type: "popup",
-//       width: 200,
-//       height: 200
-//     });
-//     chrome.runtime.sendMessage({
-//       target: "app",
-//       type: "setMessage",
-//       body: "How are you"
-//     });
-//   }
-// });
+      chrome.windows.create({
+        url: chrome.runtime.getURL("index.html"),
+        type: "popup",
+        width: 200,
+        height: 200
+      });
+
+      chrome.runtime.onMessage.addListener(request => {
+        port.onMessage.addListener(request => {
+          if (request.target === "background") {
+            if (request.type === "wiki") {
+            }
+          }
+        });
+      });
+    }
+  });
+});

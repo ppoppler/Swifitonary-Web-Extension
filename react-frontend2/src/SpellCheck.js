@@ -39,7 +39,7 @@ export default class spellCheck extends Component
                 <hr />
                 <p className="Montserrat">{JSON.stringify(this.state.spellcheck.suggestion)}</p>
               </div>
-            {/* {this.state.spellcheck.corrections..map(info => (
+            {/* {this.state.spellcheck.corrections.map(info => (
               <div>
                 <hr />
                 <p className="Montserrat">{JSON.stringify(info)}</p>

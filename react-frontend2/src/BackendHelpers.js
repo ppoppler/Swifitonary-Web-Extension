@@ -54,3 +54,14 @@ export const getspellCheck = (word,response) => {
     console.log(err);
   });
 };
+
+export const getWiki = (word,response) => {
+  
+  return axios.get("http://localhost:5000/wiki", {params: {word: word} })
+  .then(res => {
+    return res.data;
+  })
+  .catch(err => {
+    console.log(err);
+  });
+};

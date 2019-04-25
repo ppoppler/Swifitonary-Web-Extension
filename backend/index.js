@@ -144,18 +144,15 @@ app.listen(PORT, () => {
 });
 
 app.get("/wiki",function(req,res){
+    console.log("WIKI");
   const searchTerm = req.query.word; //to do multiple words put "+" in between the words 
+  console.log(searchTerm);
   unirest.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&continue=&titles= " + searchTerm +"&exsentences=6")
   .end(function(result){
     holdStuff = result;
-    var WikiInfo="";
-    WikiInfo+="Item: " + req.query.word + "";
-
-    WikiInfo+="Info: " + holdStuff;
-
+    
+  var pageId=Object.keys(holdStuff.body.query.pages)[0];
+  res.send(holdStuff.body.query.pages[pageId]);
+  console.log(holdStuff.body.query.pages[pageId]);
 });
-
-var pageId=Object.keys(holdStuff.body.query.pages)[0];
-res.send(holdStuff.body.query.pages[pageId].extract);
-
   });

@@ -5,6 +5,7 @@ import Antonym from './Antonym';
 import Synonym from './Synonym';
 import Urban from './Urban';
 import SpellCheck from './SpellCheck';
+import Wiki from './Wiki';
 
 
 const Router = () => {
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/" render={() => <Antonym />}></Route>
         <Route path="/" render={() => <SpellCheck />}></Route>
         <Route path="/" render={() => <Urban />}></Route>
+        <Route path="/" render={() => <Wiki />}></Route>
         </BrowserRouter>
     )
 }
