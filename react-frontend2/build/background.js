@@ -187,8 +187,8 @@ console.log("this has hit false");
 
 else if(sixthOption === true){ //if true then create the option
   chrome.contextMenus.create( {
-    id:"Wiki",
-    title:"Wiki",
+    id:"Description",
+    title:"Description",
     parentId:"Swift",
     contexts:["selection"]
 
@@ -540,12 +540,12 @@ chrome.runtime.onConnect.addListener(function(port) {
 });
 
 chrome.runtime.onConnect.addListener(function(port) {
-  console.assert(port.name == "pAntonym");
+  console.assert(port.name == "pDescription");
   port.onMessage.addListener(function(msg) {
-    if (msg.menuItemId === "Antonym" && msg.selectionText) {
+    if (msg.menuItemId === "Description" && msg.selectionText) {
       chrome.runtime.sendMessage({
         target: "app",
-        type: "antonym",
+        type: "description",
         body: msg.selectionText
       });
 
@@ -559,7 +559,36 @@ chrome.runtime.onConnect.addListener(function(port) {
       chrome.runtime.onMessage.addListener(request => {
         port.onMessage.addListener(request => {
           if (request.target === "background") {
-            if (request.type === "antonym") {
+            if (request.type === "description") {
+            }
+          }
+        });
+      });
+    }
+  });
+});
+
+chrome.runtime.onConnect.addListener(function(port) {
+  console.assert(port.name == "pSpellCheck");
+  port.onMessage.addListener(function(msg) {
+    if (msg.menuItemId === "spellcheck" && msg.selectionText) {
+      chrome.runtime.sendMessage({
+        target: "app",
+        type: "spellcheck",
+        body: msg.selectionText
+      });
+
+      chrome.windows.create({
+        url: chrome.runtime.getURL("index.html"),
+        type: "popup",
+        width: 200,
+        height: 200
+      });
+
+      chrome.runtime.onMessage.addListener(request => {
+        port.onMessage.addListener(request => {
+          if (request.target === "background") {
+            if (request.type === "spellcheck") {
             }
           }
         });
