@@ -64,5 +64,3 @@ port.onMessage.addListener((selectedText)=>{
     document.getElementById(document.getElementById("word").body = "report back");
   }
 });
-
-
