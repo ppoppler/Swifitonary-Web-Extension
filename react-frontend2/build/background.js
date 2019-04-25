@@ -417,6 +417,33 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   }
 });
 
+chrome.contextMenus.onClicked.addListener(async (clickedData) => {
+  if (clickedData.menuItemId === "Description" && clickedData.selectionText) {
+
+    windowIDs.forEach(id => 
+      {chrome.windows.remove(id);
+      var index = windowIDs.indexOf(id);
+      if(index> -1) windowIDs.splice(index,1);});
+
+    chrome.windows.create({
+      url: chrome.runtime.getURL("index.html"),
+      type: "popup",
+      width: 400,
+      height: 600
+    }, (window) => {windowIDs.push(window.id);
+    });
+
+    await sleep(1000);
+
+    await chrome.runtime.sendMessage({
+      target: "app",
+      type: "wiki",
+      body: clickedData.selectionText
+    });
+
+  }
+});
+
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -545,7 +572,7 @@ chrome.runtime.onConnect.addListener(function(port) {
     if (msg.menuItemId === "Description" && msg.selectionText) {
       chrome.runtime.sendMessage({
         target: "app",
-        type: "description",
+        type: "wiki",
         body: msg.selectionText
       });
 
@@ -559,36 +586,7 @@ chrome.runtime.onConnect.addListener(function(port) {
       chrome.runtime.onMessage.addListener(request => {
         port.onMessage.addListener(request => {
           if (request.target === "background") {
-            if (request.type === "description") {
-            }
-          }
-        });
-      });
-    }
-  });
-});
-
-chrome.runtime.onConnect.addListener(function(port) {
-  console.assert(port.name == "pSpellCheck");
-  port.onMessage.addListener(function(msg) {
-    if (msg.menuItemId === "spellcheck" && msg.selectionText) {
-      chrome.runtime.sendMessage({
-        target: "app",
-        type: "spellcheck",
-        body: msg.selectionText
-      });
-
-      chrome.windows.create({
-        url: chrome.runtime.getURL("index.html"),
-        type: "popup",
-        width: 200,
-        height: 200
-      });
-
-      chrome.runtime.onMessage.addListener(request => {
-        port.onMessage.addListener(request => {
-          if (request.target === "background") {
-            if (request.type === "spellcheck") {
+            if (request.type === "wiki") {
             }
           }
         });

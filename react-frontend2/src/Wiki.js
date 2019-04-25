@@ -26,6 +26,14 @@ export default class Wiki extends Component {
     }
   }
 
+     isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
   render() {
     return ( 
       <div className="container main-def">
@@ -33,9 +41,13 @@ export default class Wiki extends Component {
         {this.state.wiki !== null && (
           <div>
             <h3 className="Montserrat">Wiki</h3>
-            
+            {this.isEmpty(this.state.wiki.extract)===true ? <h4 className="Montserrat">There are no wiki suggestions for this text</h4>:<div>
+
             <p className="Montserrat">{JSON.stringify(this.state.wiki.extract)}</p>
           </div>
+            
+            }
+            </div>
         )}
       </div>
     );

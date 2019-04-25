@@ -48,8 +48,6 @@ export default class spellCheck extends Component {
           
         }
       }
-    } else {
-      console.log("null else has been hit ");
     }
     return (
       <div className="container main-def">
