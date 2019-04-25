@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { getspellCheck } from "./BackendHelpers";
 
-export default class spellCheck extends Component 
+export default class spellCheck extends Component
 {
   state = {
     text: "",

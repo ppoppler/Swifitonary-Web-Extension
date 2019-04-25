@@ -25,7 +25,13 @@ export default class Antonym extends Component {
       }
     }
   }
-
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
   render() {
     return (
       <div className="container main-def">
@@ -33,14 +39,18 @@ export default class Antonym extends Component {
         {this.state.antonym !== null && (
           <div>
             <h3 className="Montserrat">Antonym</h3>
+            {this.isEmpty(this.state.antonym.antonyms)===true ? <h4 className="Montserrat">There are no antonym suggestions for this text</h4>:<div>
             {this.state.antonym.antonyms.map(info => (
               <div>
                 <hr />
                 <p className="Montserrat">{JSON.stringify(info)}</p>
               </div>
-            ))}
+                ))}
+                </div>
+          }
           </div>
         )}
+        
       </div>
     );
   }

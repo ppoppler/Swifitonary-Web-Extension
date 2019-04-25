@@ -46,7 +46,7 @@ var ripple8 = document.querySelector('.ripple8');
 
 document.getElementById("myonoffswitch").addEventListener("click", switch1Function); //used to call our function that will sync the new preferences
 
-function switch1Function(){ //function to set the switch and sync it 
+function switch1Function(){ //function to set the switch and sync it
   var enabled1;
   // Get the checkbox
   var checkBox = document.getElementById("myonoffswitch"); //connect to the switch
@@ -59,28 +59,28 @@ function switch1Function(){ //function to set the switch and sync it
   if (checkBox.checked){
     enabled1 = "true";
 
-   chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true 
+   chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true
 
    port.postMessage({checkerino: "t"});
- 
-   chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set 
+
+   chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set
      console.log("The value is "+result.option1); //prints out true because that is the value assigned to our key,option1
     // alert(result.option1);
     console.log("the console says the val is true");
  });
   // text.style.display = "block";
 
- } 
+ }
  else {
   enabled1 = "false";
-  chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false 
+  chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false
 
   port.postMessage({checkerino: "f"});
 
 }
 
 };
-//for the first button 
+//for the first button
 button.addEventListener("click", function(e) {
   var top = button.offsetTop + e.offsetY;
   var left = button.offsetLeft + e.offsetX;
@@ -94,7 +94,7 @@ button.addEventListener("click", function(e) {
 });
 
 
-//for button 2 
+//for button 2
 button2.addEventListener('click', function (e) {
   var top2 = button2.offsetTop + e.offsetY;
   var left2 = button2.offsetLeft + e.offsetX;
@@ -106,7 +106,7 @@ console.log("yes");
   wrapper2.classList.toggle('dark');
 });
 
-//button 3 
+//button 3
 button3.addEventListener('click', function (e) {
   var top3 = button3.offsetTop + e.offsetY;
   var left3 = button3.offsetLeft + e.offsetX;
@@ -118,7 +118,7 @@ button3.addEventListener('click', function (e) {
   wrapper3.classList.toggle('dark');
 });
 
-//button 4 
+//button 4
 button4.addEventListener('click', function (e) {
   var top4 = button4.offsetTop + e.offsetY;
   var left4 = button4.offsetLeft + e.offsetX;
@@ -143,7 +143,7 @@ button5.addEventListener('click', function (e) {
   wrapper5.classList.toggle('dark');
 });
 
-//button 6 
+//button 6
 button6.addEventListener('click', function (e) {
   var top6 = button6.offsetTop + e.offsetY;
   var left6 = button6.offsetLeft + e.offsetX;

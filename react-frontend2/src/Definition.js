@@ -26,12 +26,21 @@ export default class Definition extends Component {
       }
     }
   }
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
 
   render() {
     return (
       <div className="container main-def">
         <h2 className="Montserrat">{this.state.text}</h2>
+        
         {this.state.definition !== null && (
+
           <div>
             {console.log(this.state.definition.pronunciation===undefined)}
             {this.state.definition.pronunciation !== undefined && 
@@ -43,7 +52,8 @@ export default class Definition extends Component {
               
             }
             <h3 className="Montserrat">Definitions</h3>
-            
+            {this.isEmpty(this.state.definition.results)===true ? <h4 className="Montserrat">There are no definition suggestions for this text</h4>:<div>
+
             {this.state.definition.results.map(info => (
               <div>
                 <hr />
@@ -51,9 +61,15 @@ export default class Definition extends Component {
                 <p className="Montserrat">{info.definition}</p>
               </div>
             ))}
+            
           </div>
+}
+</div>
         )}
       </div>
+        
     );
-  }
+    
+}
+
 }

@@ -64,7 +64,7 @@ const windowIDs = [];
 chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   if (clickedData.menuItemId === "Definition" && clickedData.selectionText) {
 
-    windowIDs.forEach(id => 
+    windowIDs.forEach(id =>
       {chrome.windows.remove(id);
       var index = windowIDs.indexOf(id);
       if(index> -1) windowIDs.splice(index,1);});
@@ -84,14 +84,14 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       type: "definition",
       body: clickedData.selectionText
     });
-    
+
   }
 });
 
 chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   if (clickedData.menuItemId === "Synonym" && clickedData.selectionText) {
 
-    windowIDs.forEach(id => 
+    windowIDs.forEach(id =>
       {chrome.windows.remove(id);
       var index = windowIDs.indexOf(id);
       if(index> -1) windowIDs.splice(index,1);});
@@ -111,14 +111,14 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       type: "synonym",
       body: clickedData.selectionText
     });
-    
+
   }
 });
 
 chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   if (clickedData.menuItemId === "Antonym" && clickedData.selectionText) {
 
-    windowIDs.forEach(id => 
+    windowIDs.forEach(id =>
       {chrome.windows.remove(id);
       var index = windowIDs.indexOf(id);
       if(index> -1) windowIDs.splice(index,1);});
@@ -138,7 +138,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       type: "antonym",
       body: clickedData.selectionText
     });
-    
+
   }
 });
 
@@ -146,7 +146,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
 chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   if (clickedData.menuItemId === "Urban" && clickedData.selectionText) {
 
-    windowIDs.forEach(id => 
+    windowIDs.forEach(id =>
       {chrome.windows.remove(id);
       var index = windowIDs.indexOf(id);
       if(index> -1) windowIDs.splice(index,1);});
@@ -173,7 +173,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
 chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   if (clickedData.menuItemId === "spellCheck" && clickedData.selectionText) {
 
-    windowIDs.forEach(id => 
+    windowIDs.forEach(id =>
       {chrome.windows.remove(id);
       var index = windowIDs.indexOf(id);
       if(index> -1) windowIDs.splice(index,1);});
@@ -193,14 +193,14 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       type: "spellcheck",
       body: clickedData.selectionText
     });
-    
+
   }
 });
 
 chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   if (clickedData.menuItemId === "Wiki" && clickedData.selectionText) {
 
-    windowIDs.forEach(id => 
+    windowIDs.forEach(id =>
       {chrome.windows.remove(id);
       var index = windowIDs.indexOf(id);
       if(index> -1) windowIDs.splice(index,1);});
@@ -220,7 +220,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       type: "wiki",
       body: clickedData.selectionText
     });
-    
+
   }
 });
 

@@ -25,7 +25,13 @@ export default class Synonym extends Component {
       }
     }
   }
-
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
   render() {
     return (
       <div className="container main-def">
@@ -33,6 +39,7 @@ export default class Synonym extends Component {
         {this.state.synonym !== null && (
           <div>
             <h3 className="Montserrat">Synonym</h3>
+            {this.isEmpty(this.state.synonym.synonyms)===true ? <h4 className="Montserrat">There are no synonym suggestions for this text</h4>:<div>
             {this.state.synonym.synonyms.map(info => (
               <div>
                 <hr />
@@ -40,6 +47,9 @@ export default class Synonym extends Component {
               </div>
             ))}
           </div>
+          
+            }
+            </div>
         )}
       </div>
     );
