@@ -1,0 +1,1060 @@
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px; 
+}
+
+/* begin second button */
+
+
+/* The switch - the box around the slider */
+.switch2 {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch2 input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider2 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider2:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider2 {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider2 {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider2:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider2.round {
+  border-radius: 34px;
+}
+
+.slider2.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple2 {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple2:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple2:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch2 {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox2 {
+  display: none;
+}
+.onoffswitch-label2 {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label2:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox2:checked + .onoffswitch-label2 {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox2:checked + .onoffswitch-label2, .onoffswitch-checkbox2:checked + .onoffswitch-label2:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox2:checked + .onoffswitch-label2:before {
+  right: 0px; 
+}
+
+/*begin third button */
+
+/* The switch - the box around the slider */
+.switch3 {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch3 input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider3 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider3:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider3 {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider3 {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider3:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider3.round {
+  border-radius: 34px;
+}
+
+.slider3.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple3 {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple3:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple3:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch3 {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox3 {
+  display: none;
+}
+.onoffswitch-label3 {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label3:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox3:checked + .onoffswitch-label3 {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox3:checked + .onoffswitch-label3, .onoffswitch-checkbox3:checked + .onoffswitch-label3:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox3:checked + .onoffswitch-label3:before {
+  right: 0px; 
+}
+
+/* fourth button */
+
+/* The switch - the box around the slider */
+.switch4 {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch4 input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider4 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider4:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider4 {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider4 {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider4:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider4.round {
+  border-radius: 34px;
+}
+
+.slider4.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple4 {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple4:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple4:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch4 {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox4 {
+  display: none;
+}
+.onoffswitch-label4 {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label4:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox4:checked + .onoffswitch-label4 {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox4:checked + .onoffswitch-label4, .onoffswitch-checkbox4:checked + .onoffswitch-label4:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox4:checked + .onoffswitch-label4:before {
+  right: 0px; 
+}
+
+/* fifth button */
+/* The switch - the box around the slider */
+.switch5 {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch5 input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider5 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider5:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider5 {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider5 {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider5:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider5.round {
+  border-radius: 34px;
+}
+
+.slider5.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple5 {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple5:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple5:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch5 {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox5 {
+  display: none;
+}
+.onoffswitch-label5 {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label5:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox5:checked + .onoffswitch-label5 {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox5:checked + .onoffswitch-label5, .onoffswitch-checkbox5:checked + .onoffswitch-label5:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox5:checked + .onoffswitch-label5:before {
+  right: 0px; 
+}
+
+/*sixth button */
+/* The switch - the box around the slider */
+.switch6 {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch6 input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider6 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider6:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider6 {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider6 {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider6:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider6.round {
+  border-radius: 34px;
+}
+
+.slider6.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple6 {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple6:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple6:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch6 {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox6 {
+  display: none;
+}
+.onoffswitch-label6 {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label6:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox6:checked + .onoffswitch-label6 {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox6:checked + .onoffswitch-label6, .onoffswitch-checkbox6:checked + .onoffswitch-label6:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox6:checked + .onoffswitch-label6:before {
+  right: 0px; 
+}
+
+/* seventh option*/
+/* The switch - the box around the slider */
+.switch7 {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch7 input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider7 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider7:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider7 {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider7 {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider7:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider7.round {
+  border-radius: 34px;
+}
+
+.slider7.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple7 {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple7:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple7:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch7 {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox7 {
+  display: none;
+}
+.onoffswitch-label7 {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label7:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox7:checked + .onoffswitch-label7 {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox7:checked + .onoffswitch-label7, .onoffswitch-checkbox7:checked + .onoffswitch-label7:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox7:checked + .onoffswitch-label7:before {
+  right: 0px; 
+}
+
+/*eighth option */
+/* The switch - the box around the slider */
+.switch8 {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch8 input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider8 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider8:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider8 {
+  background-color: rgb(0,206,209);
+}
+
+input:focus + .slider8 {
+  box-shadow: 0 0 1px rgb(0,206,209);
+}
+
+input:checked + .slider8:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider8.round {
+  border-radius: 34px;
+}
+
+.slider8.round:before {
+  border-radius: 50%;
+}
+
+
+.ripple8 {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+ }
+ .ripple8:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .5s, opacity 1s;
+ }
+ .ripple8:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+ }
+
+ .onoffswitch8 {
+  position: relative; width: 60px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox8 {
+  display: none;
+}
+.onoffswitch-label8 {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 20px; padding: 0; line-height: 20px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  background-color: #B0B0B0;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label8:before {
+  content: "";
+  display: block; width: 20px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 38px;
+  border: 2px solid #FFFFFF; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox8:checked + .onoffswitch-label8 {
+  background-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox8:checked + .onoffswitch-label8, .onoffswitch-checkbox8:checked + .onoffswitch-label8:before {
+ border-color: rgb(0,206,209);
+}
+.onoffswitch-checkbox8:checked + .onoffswitch-label8:before {
+  right: 0px; 
+}
+
+
+/*begin list stuff*/
+.settingsTitle{
+  font-family: 'Sarabun', sans-serif;
+  font-size: 5em;
+  text-align: center;
+  color:rgb(0,206,209)
+}
+
+.li{
+  position:relative;
+}
+.li,.buttonPos{
+position:absolute;
+  right:20%;
+margin:-37.5px;
+}
+
+/*card stuff */ 
+.w3-container{
+  margin-left:17.5%;
+  
+}
+.w3-card{
+  padding:50%;
+  
+}
+.listTest{
+  line-height:60px;
+  font-size:18px;
+}
+.swiftButton{
+  position: absolute;
+  right:35%;
+  margin-bottom:20px;
+  width: 400px;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 150%;
+  background: rgb(0,206,209);
+  color: #fff;
+  border: 1px solid rgb(0,206,209);
+  border-radius: 10px;
+  -moz-box-shadow: 6px 6px 5px #999;
+  -webkit-box-shadow: 6px 6px 5px #999;
+  box-shadow: 6px 6px 5px #999;
+  text-align: center;
+  }
+  .swiftButton:hover{
+  color: #03c703;
+  background: #000;
+  border: 1px solid rgb(0, 0, 0);
+  }
+  .divButton{
+    text-align: center;
+  }

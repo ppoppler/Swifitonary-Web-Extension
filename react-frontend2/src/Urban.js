@@ -25,14 +25,21 @@ export default class Urban extends Component {
       }
     }
   }
- 
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
   render() {
     return (
       <div className="container main-urban">
         <h2 className="Montserrat">{this.state.text}</h2>
         {this.state.urban !== null &&(
           <div>
-            <h3 className="Montserrat">Urban</h3>
+            <h3 className="Montserrat">Slang</h3>
+            {this.isEmpty(this.state.urban.list)===true ? <h4 className="Montserrat">There are no slang suggestions for this text</h4>:<div>
             {this.state.urban.list.map(info => (
               <div>
                 <hr />
@@ -43,6 +50,8 @@ export default class Urban extends Component {
               </div>
             ))}
           </div>
+            }
+            </div>
         )}
       </div>
     );

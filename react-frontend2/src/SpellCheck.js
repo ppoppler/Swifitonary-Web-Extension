@@ -27,7 +27,19 @@ export default class spellCheck extends Component {
     }
   }
 
+
+   isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
+
   render() {
+
+
     var correctedWords = [];
     if (this.state.spellcheck !== null) {
       for (var key in this.state.spellcheck.corrections) {
@@ -46,10 +58,17 @@ export default class spellCheck extends Component {
           <div>
             <h3 className="Montserrat">spellCheck</h3>
             <div>
+
               <hr />
+              {this.isEmpty(this.state.spellcheck.corrections) === true ? <h3 className
+              ="Monstserrat">This word is spelled correctly</h3> : 
+              <div>
+                <div>
+                <p className="Montserrat">Suggestion: {JSON.stringify(this.state.spellcheck.suggestion)}</p>
+                </div>
               {correctedWords.map(info => 
                 <div>
-                  <h4 className="Montserrat">{info}</h4>
+                  <h3 className="Montserrat">{info}</h3>
                   <hr/>
                   <p>Corrections: </p>
                 {this.state.spellcheck.corrections[info].map(
@@ -61,9 +80,12 @@ export default class spellCheck extends Component {
                     </div>
                   
                 )}
+
                 </div>
               )}
-              {/* <p className="Montserrat">{JSON.stringify(this.state.spellcheck.corrections)}</p> */}
+              </div>
+              /*{/* <p className="Montserrat">{JSON.stringify(this.state.spellcheck.corrections)}</p> */
+              }
             </div>
           </div>
         )}
