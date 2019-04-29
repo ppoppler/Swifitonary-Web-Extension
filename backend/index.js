@@ -147,7 +147,7 @@ app.get("/wiki",function(req,res){
     console.log("WIKI");
   const searchTerm = req.query.word; //to do multiple words put "+" in between the words 
   console.log(searchTerm);
-  unirest.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&continue=&titles= " + searchTerm +"&exsentences=6")
+  unirest.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&list=querypage&qppage=DisambiguationPageLinks&continue=&titles= " + searchTerm +"&exsentences=6&redirects")
   .end(function(result){
     holdStuff = result;
     

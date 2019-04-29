@@ -20,7 +20,7 @@ export default class Wiki extends Component {
   async handleMessage(msg) {
     if (msg.target === "app") {
       if (msg.type === "wiki") {
-        const wiki = getWiki(msg.body);
+        const wiki = await getWiki(msg.body);
         this.setState({ text: msg.body, wiki: wiki });
       }
     }
@@ -40,6 +40,7 @@ export default class Wiki extends Component {
         <h2 className="Montserrat">{this.state.text}</h2>
         {this.state.wiki !== null && (
           <div>
+            {console.log(this.state.wiki)}
             <h3 className="Montserrat">Wiki</h3>
             {this.isEmpty(this.state.wiki.extract)===true ? <h4 className="Montserrat">There are no wiki suggestions for this text</h4>:<div>
 
