@@ -61,6 +61,7 @@ return yes;
         <h2 className="Montserrat">{this.state.text}</h2>
         {this.state.wiki !== null && (
           <div>
+            {console.log(this.state.wiki)}
             <h3 className="Montserrat">Wiki</h3>
             {this.isEmpty(this.state.wiki.extract)===true ? <h4 className="Montserrat">There are no wiki suggestions for this text</h4>:<div>
 
