@@ -1,3 +1,4 @@
+/* A class that is used for stylizing the settings menu and adding color and art to it */
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -6,7 +7,7 @@
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
@@ -133,7 +134,7 @@ input:checked + .slider:before {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch2 input {
   opacity: 0;
   width: 0;
@@ -259,7 +260,7 @@ input:checked + .slider2:before {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch3 input {
   opacity: 0;
   width: 0;
@@ -385,7 +386,7 @@ input:checked + .slider3:before {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch4 input {
   opacity: 0;
   width: 0;
@@ -510,7 +511,7 @@ input:checked + .slider4:before {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch5 input {
   opacity: 0;
   width: 0;
@@ -635,7 +636,7 @@ input:checked + .slider5:before {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch6 input {
   opacity: 0;
   width: 0;
@@ -760,7 +761,7 @@ input:checked + .slider6:before {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch7 input {
   opacity: 0;
   width: 0;
@@ -885,7 +886,7 @@ input:checked + .slider7:before {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
+/* Hiding the default HTML checkbox */
 .switch8 input {
   opacity: 0;
   width: 0;
@@ -1002,7 +1003,7 @@ input:checked + .slider8:before {
 }
 
 
-/*begin list stuff*/
+/*begin list layout*/
 .settingsTitle{
   font-family: 'Sarabun', sans-serif;
   font-size: 5em;
@@ -1019,7 +1020,7 @@ position:absolute;
 margin:-37.5px;
 }
 
-/*card stuff */ 
+/*card layout */ 
 .w3-container{
   margin-left:17.5%;
 

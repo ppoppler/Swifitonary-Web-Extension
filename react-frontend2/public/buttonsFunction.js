@@ -1,10 +1,10 @@
+//button 1 variables 
 var wrapper = document.querySelector('.wrapper');
 var button = document.getElementById('.button');
-
 var ripple = document.querySelector('.ripple');
 
 
-//begin part 2 of button
+//button 2 variables
 var wrapper2 = document.querySelector('.wrapper2');
 var button2 = document.querySelector('.button2');
 var ripple2 = document.querySelector('.ripple2');
@@ -39,10 +39,6 @@ var wrapper8 = document.querySelector('.wrapper8');
 var button8 = document.querySelector('.button8');
 var ripple8 = document.querySelector('.ripple8');
 
-// function settingSelection(){
-//   var checkBox = document.getElementById("myonoffswitch2");
-//   checkBox.checked=false;
-// };
 
 document.getElementById("myonoffswitch").addEventListener("click", switch1Function); //used to call our function that will sync the new preferences
 document.getElementById("myonoffswitch2").addEventListener("click", switch2Function); 
@@ -51,39 +47,25 @@ document.getElementById("myonoffswitch4").addEventListener("click", switch4Funct
 document.getElementById("myonoffswitch5").addEventListener("click", switch5Function); 
 document.getElementById("myonoffswitch6").addEventListener("click", switch6Function); 
 
-var port = chrome.runtime.connect({name: "conHandler"});
+var port = chrome.runtime.connect({name: "conHandler"});//create port for message passing 
 
 function switch1Function(){ //function to set the switch and sync it 
   var enabled1;
   // Get the checkbox
   var checkBox = document.getElementById("myonoffswitch"); //connect to the switch
-  // Get the output text
-  //var text = document.getElementById("text");
-
-//checkBox.checked=true;
-  // If the checkbox is checked, display the output text
-
   if (checkBox.checked){
     enabled1 = "true";
-
    chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true 
-
    port.postMessage({definitionMsg: "t"});
-
    chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set 
-     console.log("The value is "+result.option1); //prints out true because that is the value assigned to our key,option1
-    // alert(result.option1);
-    console.log("the console says the val is true");
+ 
  });
-  // text.style.display = "block";
-
+ 
  } 
  else {
   enabled1 = "false";
   chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false 
-
-  port.postMessage({definitionMsg: "f"});
-
+  port.postMessage({definitionMsg: "f"}); //send f as a message pass to the port for that respective option 
 }
 
 };
@@ -94,25 +76,19 @@ function switch1Function(){ //function to set the switch and sync it
 function switch2Function(){ //function to set the switch and sync it 
   var enabled1;
   var checkBox = document.getElementById("myonoffswitch2"); //connect to the switch
-
   if (checkBox.checked){
     enabled1 = "true";
-
-   chrome.storage.sync.set({"option2": enabled1}); 
-
-   port.postMessage({synonymMsg: "t"});
-
+   chrome.storage.sync.set({"option2": enabled1}); //set the value for option 2 to true 
+   port.postMessage({synonymMsg: "t"}); //set the message to t for synonym 
    chrome.storage.sync.get(["option2"],function(result){ 
-     console.log("The value is "+result.option2); 
-    console.log("the console says the  2 val is true");
  });
 
  } 
  else {
   enabled1 = "false";
-  chrome.storage.sync.set({"option2": enabled1}); //otherwise sync the word false 
+  chrome.storage.sync.set({"option2": enabled1}); //otherwise sync the word false to the option2 key 
 
-  port.postMessage({synonymMsg: "f"});
+  port.postMessage({synonymMsg: "f"}); //post message f to be associated with synonymMsg
 
 }
 
@@ -129,13 +105,11 @@ function switch3Function(){ //function to set the switch and sync it
   if (checkBox.checked){
     enabled1 = "true";
 
-   chrome.storage.sync.set({"option3": enabled1}); 
+   chrome.storage.sync.set({"option3": enabled1}); //set option 3 to true 
 
-   port.postMessage({antonymMsg: "t"});
+   port.postMessage({antonymMsg: "t"}); //send message as t to the port for antonym msg 
 
    chrome.storage.sync.get(["option3"],function(result){ 
-     console.log("The value is "+result.option3); 
-    console.log("the console says the  3 val is true");
  });
 
  } 
@@ -143,7 +117,7 @@ function switch3Function(){ //function to set the switch and sync it
   enabled1 = "false";
   chrome.storage.sync.set({"option3": enabled1}); //otherwise sync the word false 
 
-  port.postMessage({antonymMsg: "f"});
+  port.postMessage({antonymMsg: "f"});//post the message f to be associated with anonym msg
 
 }
 
@@ -158,15 +132,14 @@ function switch4Function(){ //function to set the switch and sync it
   var checkBox = document.getElementById("myonoffswitch4"); //connect to the switch
 
   if (checkBox.checked){
-    enabled1 = "true";
+    enabled1 = "true"; //if the checkbox is checked set the value to true 
 
-   chrome.storage.sync.set({"option4": enabled1}); 
+   chrome.storage.sync.set({"option4": enabled1});  //set value for option 4 key to true 
 
-   port.postMessage({slangMsg: "t"});
+   port.postMessage({slangMsg: "t"}); //send message t with key slangMsg
 
    chrome.storage.sync.get(["option4"],function(result){ 
-     console.log("The value is "+result.option4); 
-    console.log("the console says the  4 val is true");
+   
  });
 
  } 
@@ -174,7 +147,7 @@ function switch4Function(){ //function to set the switch and sync it
   enabled1 = "false";
   chrome.storage.sync.set({"option4": enabled1}); //otherwise sync the word false 
 
-  port.postMessage({slangMsg: "f"});
+  port.postMessage({slangMsg: "f"}); //send the message f to and associate it with slangMsg
 
 }
 
@@ -190,23 +163,22 @@ function switch5Function(){ //function to set the switch and sync it
   var checkBox = document.getElementById("myonoffswitch5"); //connect to the switch
 
   if (checkBox.checked){
-    enabled1 = "true";
+    enabled1 = "true"; //set the value to true if the checkbox is checked 
 
-   chrome.storage.sync.set({"option5": enabled1}); 
+   chrome.storage.sync.set({"option5": enabled1}); //sync ttrue to the users google account associated with the option 5 key
 
-   port.postMessage({spellcheckMsg: "t"});
+   port.postMessage({spellcheckMsg: "t"}); //send message t and associate that with spellcheck msg 
 
    chrome.storage.sync.get(["option5"],function(result){ 
-     console.log("The value is "+result.option5); 
-    console.log("the console says the  5 val is true");
+    
  });
 
  } 
  else {
-  enabled1 = "false";
-  chrome.storage.sync.set({"option5": enabled1}); //otherwise sync the word false 
+  enabled1 = "false"; //otherwise set the value to false 
+  chrome.storage.sync.set({"option5": enabled1}); //sync the word false 
 
-  port.postMessage({spellcheckMsg: "f"});
+  port.postMessage({spellcheckMsg: "f"}); //send f as a message on the port
 
 }
 
@@ -221,15 +193,14 @@ function switch6Function(){ //function to set the switch and sync it
   var checkBox = document.getElementById("myonoffswitch6"); //connect to the switch
 
   if (checkBox.checked){
-    enabled1 = "true";
+    enabled1 = "true"; //assign the var to equal true 
 
-   chrome.storage.sync.set({"option6": enabled1}); 
+   chrome.storage.sync.set({"option6": enabled1});  //set the sixth option to equal true and sync it to the users google account 
 
-   port.postMessage({descriptionMsg: "t"});
+   port.postMessage({descriptionMsg: "t"}); //send t to the port, it is associated with descriptionMsg
 
    chrome.storage.sync.get(["option6"],function(result){ 
-     console.log("The value is "+result.option6); 
-    console.log("the console says the  6 val is true");
+     
  });
 
  } 
@@ -237,7 +208,7 @@ function switch6Function(){ //function to set the switch and sync it
   enabled1 = "false";
   chrome.storage.sync.set({"option6": enabled1}); //otherwise sync the word false 
 
-  port.postMessage({descriptionMsg: "f"});
+  port.postMessage({descriptionMsg: "f"});//pass f as a message, it is associated with decriptionMsg
 
 }
 
@@ -245,16 +216,15 @@ function switch6Function(){ //function to set the switch and sync it
 
 
 //for the first button 
-button.addEventListener("click", function(e) {
+button.addEventListener("click", function(e) { //used for moverment and adding a ripple effect to the button 
   var top = button.offsetTop + e.offsetY;
   var left = button.offsetLeft + e.offsetX;
-//console.log("event listener function");
-  Object.assign(ripple.style, {
+  Object.assign(ripple.style, { //ripple effect 
     top: top + 'px',
     left: left + 'px' });
 
 
-  wrapper.classList.toggle('dark');
+  wrapper.classList.toggle('dark'); //grey the button out when it is off 
 });
 
 
@@ -343,8 +313,3 @@ button8.addEventListener('click', function (e) {
 
   wrapper8.classList.toggle('dark');
 });
-// chrome.storage.local.set({"Test":"hello"});
-// chrome.storage.local.get(["Test"],function(result){
-//   console.log("The value is"+result.key);
-//   alert(result.Test);
-//});
