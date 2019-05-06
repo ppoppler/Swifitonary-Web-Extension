@@ -265,14 +265,13 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => { //listen for 
     }, (window) => {windowIDs.push(window.id);
     });
 
-    await sleep(500); //sleep for 1000 milliseconds to allow the api to have time to retrieve the data 
+    await sleep(500); //sleep for 500 milliseconds to allow the api to have time to retrieve the data 
 
     await chrome.runtime.sendMessage({ //send a message to run the definition class which has the definition api and send the text that was highlighted 
       target: "app",
       type: "definition",
       body: clickedData.selectionText
     });
-
   }
 });
 
@@ -295,7 +294,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
     }, (window) => {windowIDs.push(window.id);
     });
 
-    await sleep(500);//sleep for 1000 milliseconds to wait for api to retrieve data 
+    await sleep(500);//sleep for 500 milliseconds to wait for api to retrieve data 
 
     await chrome.runtime.sendMessage({ //send message to run synonym 
       target: "app",
