@@ -23,7 +23,6 @@ export default class spellCheck extends Component {
     if (msg.target === "app") {
       if (msg.type === "spellcheck") {
         const spellcheck = await getspellCheck(msg.body);
-        console.log(spellcheck);
         this.setState({ text: msg.body, spellcheck: spellcheck });
       }
     }
@@ -73,8 +72,6 @@ export default class spellCheck extends Component {
                 {this.state.spellcheck.corrections[info].map(
                   correctionOutput => 
                     <div>
-                      {console.log(correctionOutput)}
-                      
                       <p className="Montserrat">{String(correctionOutput)}</p>
                     </div>
                   
@@ -83,7 +80,6 @@ export default class spellCheck extends Component {
                 </div>
               )}
               </div>
-              /*{/* <p className="Montserrat">{JSON.stringify(this.state.spellcheck.corrections)}</p> */
               }
             </div>
           </div>

@@ -207,11 +207,8 @@ function switch6Function(){ //function to set the switch and sync it
  else {
   enabled1 = "false";
   chrome.storage.sync.set({"option6": enabled1}); //otherwise sync the word false 
-
   port.postMessage({descriptionMsg: "f"});//pass f as a message, it is associated with decriptionMsg
-
 }
-
 };
 
 
@@ -232,7 +229,6 @@ button.addEventListener("click", function(e) { //used for moverment and adding a
 button2.addEventListener('click', function (e) {
   var top2 = button2.offsetTop + e.offsetY;
   var left2 = button2.offsetLeft + e.offsetX;
-console.log("yes");
   Object.assign(ripple2.style, {
     top2: top2 + 'px',
     left2: left2 + 'px' });

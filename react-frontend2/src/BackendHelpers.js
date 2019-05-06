@@ -4,8 +4,7 @@
 import axios from "axios";
 
 export const getDefinition = (word,response) => {
-  console.log(word);
-  return axios.get("http://localhost:5000/define", { params: { word: word } })
+  return axios.get("http://swiftbackend-239810.appspot.com/define", { params: { word: word } })
     .then(res => {
       return res.data;
     })
@@ -16,7 +15,7 @@ export const getDefinition = (word,response) => {
 
 export const getSynonym = (word,response) => {
 
-  return axios.get("http://localhost:5000/synonym", {params: {word: word} })
+  return axios.get("http://swiftbackend-239810.appspot.com/synonym", {params: {word: word} })
   .then(res => {
     return res.data;
   })
@@ -27,7 +26,7 @@ export const getSynonym = (word,response) => {
 
 export const getAntonym = (word,response) => {
 
-  return axios.get("http://localhost:5000/antonym", {params: {word: word} })
+  return axios.get("http://swiftbackend-239810.appspot.com/antonym", {params: {word: word} })
   .then(res => {
     return res.data;
   })
@@ -38,7 +37,7 @@ export const getAntonym = (word,response) => {
 
 export const getUrban = (word,response) => {
 
-  return axios.get("http://localhost:5000/urban", {params: {word: word} })
+  return axios.get("http://swiftbackend-239810.appspot.com/urban", {params: {word: word} })
   .then(res => {
     return res.data;
   })
@@ -49,7 +48,7 @@ export const getUrban = (word,response) => {
 
 export const getspellCheck = (word,response) => {
 
-  return axios.get("http://localhost:5000/spellcheck", {params: {word: word} })
+  return axios.get("http://swiftbackend-239810.appspot.com/spellcheck", {params: {word: word} })
   .then(res => {
     return res.data;
   })
@@ -60,7 +59,7 @@ export const getspellCheck = (word,response) => {
 
 export const getWiki = (word,response) => {
 
-  return axios.get("http://localhost:5000/wiki", {params: {word: word} })
+  return axios.get("http://swiftbackend-239810.appspot.com/wiki", {params: {word: word} })
   .then(res => {
     return res.data;
   })
