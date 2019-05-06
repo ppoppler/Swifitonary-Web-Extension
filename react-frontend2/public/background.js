@@ -131,7 +131,7 @@ if(fourthOption === false){ //if false then don't show option
 else if(fourthOption === true){ //if true then create the option
   chrome.contextMenus.create( {
     id:"Urban",
-    title:"Urban",
+    title:"Slang",
     parentId:"Swift",
     contexts:["selection"]
 })
@@ -214,7 +214,7 @@ else if(sixthOption === true){ //if true then create the option
        if(msg.slangMsg =="t"){ //if t then create the urban context menu option 
         chrome.contextMenus.create( {
           id:"Urban",
-          title:"Urban",
+          title:"Slang",
           parentId:"Swift",
           contexts:["selection"]
       })

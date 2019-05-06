@@ -288,28 +288,3 @@ button6.addEventListener('click', function (e) {
 
   wrapper6.classList.toggle('dark');
 });
-
-
-//button 7
-button7.addEventListener('click', function (e) {
-  var top7 = button7.offsetTop + e.offsetY;
-  var left7 = button7.offsetLeft + e.offsetX;
-
-  Object.assign(ripple7.style, {
-    top7: top7 + 'px',
-    left7: left7 + 'px' });
-
-  wrapper7.classList.toggle('dark');
-});
-
-//button 8
-button8.addEventListener('click', function (e) {
-  var top8 = button8.offsetTop + e.offsetY;
-  var left8 = button8.offsetLeft + e.offsetX;
-
-  Object.assign(ripple8.style, {
-    top8: top8 + 'px',
-    left8: left8 + 'px' });
-
-  wrapper8.classList.toggle('dark');
-});

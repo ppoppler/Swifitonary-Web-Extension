@@ -13,10 +13,12 @@ export default class Synonym extends Component {
     this.sendRequest();
   }
 
+  //sends a message that this type is Synonym 
   sendRequest() {
     chrome.runtime.sendMessage({ target: "background", type: "synonym" });
   }
 
+  //if it is type synonym then wait to get the word and extract the synonyms
   async handleMessage(msg) {
     if (msg.target === "app") {
       if (msg.type === "synonym") {
@@ -32,6 +34,8 @@ export default class Synonym extends Component {
     }
     return true;
 }
+
+//renders the text and format of synonym
   render() {
     return (
       <div className="container main-def">

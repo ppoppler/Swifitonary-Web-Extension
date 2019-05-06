@@ -20,7 +20,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<h1 class="settingsTitle">Settings</h1>  <!--create the title of the page -->
+<center><img src="preflogo.png" alt="preflogo" style="height:175px"></center>  <!--create the title of the page -->
 <div class="w3-container">
   <h2>Feel free to customize Swiftionary to your liking</h2>
   <!--hover and card list begins here -->
@@ -39,7 +39,7 @@
 
 
      <!--create button for synonym -->
-    <li class="listTest">Synonym
+    <li class="listTest">Synonym 
         <div class="buttonPos">
             <div class="onoffswitch2 ripple2" >
               <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox2" id="myonoffswitch2" >
@@ -48,7 +48,7 @@
         </div>
     </li>
  <!--create button for antonym -->
-    <li class="listTest">Antonym
+    <li class="listTest">Antonym 
       <div class="buttonPos">
         <div class="onoffswitch3 ripple3" >
           <input type="checkbox" name="onoffswitch3" class="onoffswitch-checkbox3" id="myonoffswitch3" >
@@ -57,7 +57,7 @@
     </div>
     </li>
      <!--create button for slang -->
-    <li class="listTest">Slang
+    <li class="listTest">Slang  
       <div class="buttonPos">
         <div class="onoffswitch4 ripple4" >
           <input type="checkbox" name="onoffswitch4" class="onoffswitch-checkbox4" id="myonoffswitch4" >
@@ -66,7 +66,7 @@
     </div>
     </li>
      <!--create button for spellcheck -->
-    <li class ="listTest">Spellcheck
+    <li class ="listTest">Spellcheck 
     <div class="buttonPos">
       <div class="onoffswitch5 ripple5" >
         <input type="checkbox" name="onoffswitch5" class="onoffswitch-checkbox5" id="myonoffswitch5">
@@ -89,11 +89,10 @@
  <!--create button to give them the option to go to our website -->
 </div>
 <div class="divButton">
-<form>
-    <input class="swiftButton" type="button" value="Swiftionary Website" onclick="window.location.href='https://www.google.com'" />
-    </form>
-  </div>
-  <script src="buttonsFunction.js"></script>
+  <form action ="https://swiftionary.herokuapp.com/" method ="get" target="_blank">
+      <button class ="swiftButton" value ="Swiftionary Website" type ="submit">Swiftionary Website</button>
+      </form>
+<script src="buttonsFunction.js"></script>
 </body>
 
 </html>

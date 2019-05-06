@@ -13,10 +13,12 @@ export default class Antonym extends Component {
     this.sendRequest();
   }
 
+  //sends a message that this type is Antonym
   sendRequest() {
     chrome.runtime.sendMessage({ target: "background", type: "antonym" });
   }
 
+  //if it is type antonym then wait to get the word and extract the antonyms
   async handleMessage(msg) {
     if (msg.target === "app") {
       if (msg.type === "antonym") {
@@ -32,6 +34,8 @@ export default class Antonym extends Component {
     }
     return true;
 }
+
+//renders the text and format of antonym
   render() {
     return (
       <div className="container main-def">

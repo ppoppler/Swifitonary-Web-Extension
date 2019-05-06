@@ -13,10 +13,12 @@ export default class spellCheck extends Component {
     this.sendRequest();
   }
 
+  //sends a message that this is type SpellCheck
   sendRequest() {
     chrome.runtime.sendMessage({ target: "background", type: "spellcheck" });
   }
 
+  //if it is type spellcheck then wait to get the word and extract the spellcheck corrections and suggestion
   async handleMessage(msg) {
     if (msg.target === "app") {
       if (msg.type === "spellcheck") {
@@ -36,9 +38,8 @@ export default class spellCheck extends Component {
     return true;
 }
 
-
+//renders the text and format of spellcheck
   render() {
-
 
     var correctedWords = [];
     if (this.state.spellcheck !== null) {

@@ -131,7 +131,7 @@ if(fourthOption === false){ //if false then don't show option
 else if(fourthOption === true){ //if true then create the option
   chrome.contextMenus.create( {
     id:"Urban",
-    title:"Urban",
+    title:"Slang",
     parentId:"Swift",
     contexts:["selection"]
 })
@@ -214,7 +214,7 @@ else if(sixthOption === true){ //if true then create the option
        if(msg.slangMsg =="t"){ //if t then create the urban context menu option 
         chrome.contextMenus.create( {
           id:"Urban",
-          title:"Urban",
+          title:"Slang",
           parentId:"Swift",
           contexts:["selection"]
       })
@@ -252,7 +252,9 @@ else if(sixthOption === true){ //if true then create the option
 
 
 const windowIDs = [];
-
+/*
+* listens for a click and if definition was chosen and text is highlighted, then sends that message to the definition class 
+*/
 chrome.contextMenus.onClicked.addListener(async (clickedData) => { //listen for a click 
   if (clickedData.menuItemId === "Definition" && clickedData.selectionText) {  //if they highlighted text and chose the definition option
 
@@ -271,7 +273,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => { //listen for 
 
     await sleep(500); //sleep for 500 milliseconds to allow the api to have time to retrieve the data 
 
-    await chrome.runtime.sendMessage({ //send a message to run the definition api and send the text that was highlighted 
+    await chrome.runtime.sendMessage({ //send a message to run the definition class which has the definition api and send the text that was highlighted 
       target: "app",
       type: "definition",
       body: clickedData.selectionText
@@ -286,22 +288,22 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => { //listen for 
 chrome.contextMenus.onClicked.addListener(async (clickedData) => {
   if (clickedData.menuItemId === "Synonym" && clickedData.selectionText) {
 
-    windowIDs.forEach(id => 
+    windowIDs.forEach(id => //remove previous window 
       {chrome.windows.remove(id);
       var index = windowIDs.indexOf(id);
       if(index> -1) windowIDs.splice(index,1);});
 
     chrome.windows.create({
-      url: chrome.runtime.getURL("index.html"),
+      url: chrome.runtime.getURL("index.html"),//create window 
       type: "popup",
       width: 400,
       height: 600
     }, (window) => {windowIDs.push(window.id);
     });
 
-    await sleep(500);
+    await sleep(500);//sleep for 500 milliseconds to wait for api to retrieve data 
 
-    await chrome.runtime.sendMessage({
+    await chrome.runtime.sendMessage({ //send message to run synonym 
       target: "app",
       type: "synonym",
       body: clickedData.selectionText
@@ -435,7 +437,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-//listener function 
+//listener function for definition
 chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name == "pDefinition");
   port.onMessage.addListener(function(msg) {
@@ -464,7 +466,9 @@ chrome.runtime.onConnect.addListener(function(port) {
     }
   });
 });
-
+/*
+*listener function for urban
+*/
 chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name == "pUrban");
   port.onMessage.addListener(function(msg) {
@@ -493,7 +497,9 @@ chrome.runtime.onConnect.addListener(function(port) {
     }
   });
 });
-
+/*
+*listener function for synonym
+*/
 chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name == "pSynonym");
   port.onMessage.addListener(function(msg) {
@@ -522,7 +528,9 @@ chrome.runtime.onConnect.addListener(function(port) {
     }
   });
 });
-
+/*
+*listener function for spellcheck
+*/
 chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name == "pSpellCheck");
   port.onMessage.addListener(function(msg) {
@@ -551,7 +559,9 @@ chrome.runtime.onConnect.addListener(function(port) {
     }
   });
 });
-
+/*
+*listener function for description 
+*/
 chrome.runtime.onConnect.addListener(function(port) {
   console.assert(port.name == "pDescription");
   port.onMessage.addListener(function(msg) {

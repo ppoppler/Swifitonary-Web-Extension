@@ -1,3 +1,6 @@
+/*
+   get() functions to get the information through the backend to use with the frontend
+*/
 import axios from "axios";
 
 export const getDefinition = (word,response) => {

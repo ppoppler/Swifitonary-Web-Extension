@@ -13,10 +13,12 @@ export default class Wiki extends Component {
     this.sendRequest();
   }
 
+  //sends a message that this is type Wiki
   sendRequest() {
     chrome.runtime.sendMessage({ target: "background", type: "wiki" });
   }
 
+  //if it is type wiki then wait to get the word and extract the wiki text
   async handleMessage(msg) {
     if (msg.target === "app") {
       if (msg.type === "wiki") {
@@ -34,6 +36,7 @@ export default class Wiki extends Component {
     return true;
 }
 
+//method to remove the html tags
  takeString(theResult){
  theResult=theResult.replace(/<(?:.|\n|\\n)*?>/gm, '');
  var yes="", holdit;
@@ -55,6 +58,7 @@ export default class Wiki extends Component {
 return yes;
 }
 
+  //renders the text and format of wiki description
   render() {
     return ( 
       <div className="container main-def">
@@ -62,7 +66,7 @@ return yes;
         {this.state.wiki !== null && (
           <div>
             {console.log(this.state.wiki)}
-            <h3 className="Montserrat">Wiki</h3>
+            <h3 className="Montserrat">Wiki Definition</h3>
             {this.isEmpty(this.state.wiki.extract)===true ? <h4 className="Montserrat">There are no wiki suggestions for this text</h4>:<div>
 
             <p className="Montserrat">{this.takeString(JSON.stringify(this.state.wiki.extract))}</p>

@@ -14,6 +14,6 @@
     "unirest": "^0.5.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.19.0"
   }
 }
