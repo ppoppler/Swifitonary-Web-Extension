@@ -38,7 +38,7 @@ export default class Urban extends Component {
 
     //renders the text and format of urban slang
     return (
-      <div className="container main-urban">
+      <div className="container main-def">
         <h2 className="Montserrat">{this.state.text}</h2>
         {this.state.urban !== null &&(
           <div>

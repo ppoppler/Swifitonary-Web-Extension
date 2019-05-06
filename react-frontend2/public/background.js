@@ -261,7 +261,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => { //listen for 
       url: chrome.runtime.getURL("index.html"),
       type: "popup",
       width: 400, //dimensions 
-      height: 600
+      height: 400
     }, (window) => {windowIDs.push(window.id);
     });
 
@@ -290,7 +290,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       url: chrome.runtime.getURL("index.html"),//create window 
       type: "popup",
       width: 400,
-      height: 600
+      height: 400
     }, (window) => {windowIDs.push(window.id);
     });
 
@@ -319,7 +319,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       url: chrome.runtime.getURL("index.html"),
       type: "popup",
       width: 400,
-      height: 600
+      height: 400
     }, (window) => {windowIDs.push(window.id);
     });
 
@@ -348,7 +348,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       url: chrome.runtime.getURL("index.html"),
       type: "popup",
       width: 400,
-      height: 600
+      height: 400
     }, (window) => {windowIDs.push(window.id);
     });
 
@@ -380,7 +380,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       url: chrome.runtime.getURL("index.html"),
       type: "popup",
       width: 400,
-      height: 600
+      height: 400
     }, (window) => {windowIDs.push(window.id);
     });
 
@@ -409,7 +409,7 @@ chrome.contextMenus.onClicked.addListener(async (clickedData) => {
       url: chrome.runtime.getURL("index.html"),
       type: "popup",
       width: 400,
-      height: 600
+      height: 400
     }, (window) => {windowIDs.push(window.id);
     });
 
