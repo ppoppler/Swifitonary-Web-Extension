@@ -21,7 +21,6 @@ export default class Definition extends Component {
     if (msg.target === "app") {
       if (msg.type === "definition") {
         const definition = await getDefinition(msg.body);
-        console.log(definition);
         this.setState({ text: msg.body, definition: definition });
       }
     }
@@ -38,11 +37,8 @@ export default class Definition extends Component {
     return (
       <div className="container main-def">
         <h2 className="Montserrat">{this.state.text}</h2>
-        
         {this.state.definition !== null && (
-
           <div>
-            {console.log(this.state.definition.pronunciation===undefined)}
             {this.state.definition.pronunciation !== undefined && 
               <h3 className="Montserrat">
                 {this.state.definition.pronunciation.all !== null

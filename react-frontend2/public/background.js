@@ -1,5 +1,12 @@
 /* global chrome */
 
+chrome.runtime.onInstalled.addListener(function (start) {
+  if (start.reason == "install") {
+    chrome.runtime.openOptionsPage();
+  }
+});
+
+
 const background = chrome.extension.getBackgroundPage();
 chrome.contextMenus.create( { //create the parent extension context menu option
   id: "Swift",

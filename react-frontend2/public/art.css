@@ -1019,11 +1019,19 @@ position:absolute;
   right:20%;
 margin:-37.5px;
 }
+.li,.buttonPosPop{
+  position:absolute;
+  right:35%;
+margin:-37.5px;
+}
 
 /*card layout */ 
 .w3-container{
   margin-left:17.5%;
 
+}
+.w3-containerPop{
+  margin-left:10%;
 }
 .w3-card{
   padding:50%;
@@ -1050,12 +1058,36 @@ margin:-37.5px;
   -webkit-box-shadow: 6px 6px 5px #999;
   box-shadow: 6px 6px 5px #999;
   text-align: center;
-  }
-  .swiftButton:hover{
+}
+.swiftButton:hover{
   color: #03c703;
   background: #000;
   border: 1px solid rgb(0, 0, 0);
   }
+.swiftButtonPop{
+  position: absolute;
+  right:12.5%;
+  margin-bottom:20px;
+  width: 250px;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 150%;
+  background: rgb(0,206,209);
+  color: #fff;
+  border: 1px solid rgb(0,206,209);
+  border-radius: 10px;
+  -moz-box-shadow: 6px 6px 5px #999;
+  -webkit-box-shadow: 6px 6px 5px #999;
+  box-shadow: 6px 6px 5px #999;
+  text-align: center;
+  }
+  .swiftButtonPop:hover{
+    color: #03c703;
+    background: #000;
+    border: 1px solid rgb(0, 0, 0);
+    }
+
   .divButton{
     text-align: center;
   }

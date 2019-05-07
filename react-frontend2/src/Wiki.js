@@ -39,10 +39,9 @@ export default class Wiki extends Component {
 //method to remove the html tags
  takeString(theResult){
  theResult=theResult.replace(/<(?:.|\n|\\n)*?>/gm, '');
- var yes="", holdit;
+ var stringAnswer="";
  for (var i =0; i<theResult.length;i++)
  {
-   var check=false;
     if (theResult.charAt(i) === "\\" &&  theResult.charAt(i+1) === "n")
     {
       theResult=theResult.replace(theResult.charAt(i+1),"");
@@ -50,11 +49,11 @@ export default class Wiki extends Component {
 
     else
     {
-      yes+=theResult.charAt(i);
+      stringAnswer+=theResult.charAt(i);
   
     }
  }
-return yes;
+return stringAnswer;
 }
 
   //renders the text and format of wiki description
