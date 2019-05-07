@@ -45,15 +45,15 @@ var ripple8 = document.querySelector('.ripple8');
 // };
 
 document.getElementById("myonoffswitch").addEventListener("click", switch1Function); //used to call our function that will sync the new preferences
-document.getElementById("myonoffswitch2").addEventListener("click", switch2Function); 
-document.getElementById("myonoffswitch3").addEventListener("click", switch3Function); 
-document.getElementById("myonoffswitch4").addEventListener("click", switch4Function); 
-document.getElementById("myonoffswitch5").addEventListener("click", switch5Function); 
-document.getElementById("myonoffswitch6").addEventListener("click", switch6Function); 
+document.getElementById("myonoffswitch2").addEventListener("click", switch2Function);
+document.getElementById("myonoffswitch3").addEventListener("click", switch3Function);
+document.getElementById("myonoffswitch4").addEventListener("click", switch4Function);
+document.getElementById("myonoffswitch5").addEventListener("click", switch5Function);
+document.getElementById("myonoffswitch6").addEventListener("click", switch6Function);
 
 var port = chrome.runtime.connect({name: "conHandler"});
 
-function switch1Function(){ //function to set the switch and sync it 
+function switch1Function(){ //function to set the switch and sync it
   var enabled1;
   // Get the checkbox
   var checkBox = document.getElementById("myonoffswitch"); //connect to the switch
@@ -62,57 +62,27 @@ function switch1Function(){ //function to set the switch and sync it
 
 //checkBox.checked=true;
   // If the checkbox is checked, display the output text
-
+  var port = chrome.runtime.connect({name: "conHandler"});
   if (checkBox.checked){
     enabled1 = "true";
 
-   chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true 
+   chrome.storage.sync.set({"option1": enabled1}); //option1 is the key and set it to true
 
-   port.postMessage({definitionMsg: "t"});
- 
-   chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set 
+   port.postMessage({checkerino: "t"});
+
+   chrome.storage.sync.get(["option1"],function(result){ //was using this to see in the console if stuff was being set
      console.log("The value is "+result.option1); //prints out true because that is the value assigned to our key,option1
     // alert(result.option1);
     console.log("the console says the val is true");
  });
   // text.style.display = "block";
 
- } 
+ }
  else {
   enabled1 = "false";
-  chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false 
+  chrome.storage.sync.set({"option1": enabled1}); //otherwise sync the word false
 
-  port.postMessage({definitionMsg: "f"});
-
-}
-
-};
-
-/**
- * functionality for the second button 
- */
-function switch2Function(){ //function to set the switch and sync it 
-  var enabled1;
-  var checkBox = document.getElementById("myonoffswitch2"); //connect to the switch
-
-  if (checkBox.checked){
-    enabled1 = "true";
-
-   chrome.storage.sync.set({"option2": enabled1}); 
-
-   port.postMessage({synonymMsg: "t"});
- 
-   chrome.storage.sync.get(["option2"],function(result){ 
-     console.log("The value is "+result.option2); 
-    console.log("the console says the  2 val is true");
- });
-
- } 
- else {
-  enabled1 = "false";
-  chrome.storage.sync.set({"option2": enabled1}); //otherwise sync the word false 
-
-  port.postMessage({synonymMsg: "f"});
+  port.postMessage({checkerino: "f"});
 
 }
 
@@ -120,28 +90,28 @@ function switch2Function(){ //function to set the switch and sync it
 
 
 /**
- * functionality for the third button 
+ * functionality for the third button
  */
-function switch3Function(){ //function to set the switch and sync it 
+function switch3Function(){ //function to set the switch and sync it
   var enabled1;
   var checkBox = document.getElementById("myonoffswitch3"); //connect to the switch
 
   if (checkBox.checked){
     enabled1 = "true";
 
-   chrome.storage.sync.set({"option3": enabled1}); 
+   chrome.storage.sync.set({"option3": enabled1});
 
    port.postMessage({antonymMsg: "t"});
- 
-   chrome.storage.sync.get(["option3"],function(result){ 
-     console.log("The value is "+result.option3); 
+
+   chrome.storage.sync.get(["option3"],function(result){
+     console.log("The value is "+result.option3);
     console.log("the console says the  3 val is true");
  });
 
- } 
+ }
  else {
   enabled1 = "false";
-  chrome.storage.sync.set({"option3": enabled1}); //otherwise sync the word false 
+  chrome.storage.sync.set({"option3": enabled1}); //otherwise sync the word false
 
   port.postMessage({antonymMsg: "f"});
 
@@ -151,28 +121,28 @@ function switch3Function(){ //function to set the switch and sync it
 
 
 /**
- * functionality for the fourth button 
+ * functionality for the fourth button
  */
-function switch4Function(){ //function to set the switch and sync it 
+function switch4Function(){ //function to set the switch and sync it
   var enabled1;
   var checkBox = document.getElementById("myonoffswitch4"); //connect to the switch
 
   if (checkBox.checked){
     enabled1 = "true";
 
-   chrome.storage.sync.set({"option4": enabled1}); 
+   chrome.storage.sync.set({"option4": enabled1});
 
    port.postMessage({slangMsg: "t"});
- 
-   chrome.storage.sync.get(["option4"],function(result){ 
-     console.log("The value is "+result.option4); 
+
+   chrome.storage.sync.get(["option4"],function(result){
+     console.log("The value is "+result.option4);
     console.log("the console says the  4 val is true");
  });
 
- } 
+ }
  else {
   enabled1 = "false";
-  chrome.storage.sync.set({"option4": enabled1}); //otherwise sync the word false 
+  chrome.storage.sync.set({"option4": enabled1}); //otherwise sync the word false
 
   port.postMessage({slangMsg: "f"});
 
@@ -183,28 +153,28 @@ function switch4Function(){ //function to set the switch and sync it
 
 
 /**
- * functionality for the fifth button 
+ * functionality for the fifth button
  */
-function switch5Function(){ //function to set the switch and sync it 
+function switch5Function(){ //function to set the switch and sync it
   var enabled1;
   var checkBox = document.getElementById("myonoffswitch5"); //connect to the switch
 
   if (checkBox.checked){
     enabled1 = "true";
 
-   chrome.storage.sync.set({"option5": enabled1}); 
+   chrome.storage.sync.set({"option5": enabled1});
 
    port.postMessage({spellcheckMsg: "t"});
- 
-   chrome.storage.sync.get(["option5"],function(result){ 
-     console.log("The value is "+result.option5); 
+
+   chrome.storage.sync.get(["option5"],function(result){
+     console.log("The value is "+result.option5);
     console.log("the console says the  5 val is true");
  });
 
- } 
+ }
  else {
   enabled1 = "false";
-  chrome.storage.sync.set({"option5": enabled1}); //otherwise sync the word false 
+  chrome.storage.sync.set({"option5": enabled1}); //otherwise sync the word false
 
   port.postMessage({spellcheckMsg: "f"});
 
@@ -214,28 +184,28 @@ function switch5Function(){ //function to set the switch and sync it
 
 
 /**
- * functionality for the sixth button 
+ * functionality for the sixth button
  */
-function switch6Function(){ //function to set the switch and sync it 
+function switch6Function(){ //function to set the switch and sync it
   var enabled1;
   var checkBox = document.getElementById("myonoffswitch6"); //connect to the switch
 
   if (checkBox.checked){
     enabled1 = "true";
 
-   chrome.storage.sync.set({"option6": enabled1}); 
+   chrome.storage.sync.set({"option6": enabled1});
 
    port.postMessage({descriptionMsg: "t"});
- 
-   chrome.storage.sync.get(["option6"],function(result){ 
-     console.log("The value is "+result.option6); 
+
+   chrome.storage.sync.get(["option6"],function(result){
+     console.log("The value is "+result.option6);
     console.log("the console says the  6 val is true");
  });
 
- } 
+ }
  else {
   enabled1 = "false";
-  chrome.storage.sync.set({"option6": enabled1}); //otherwise sync the word false 
+  chrome.storage.sync.set({"option6": enabled1}); //otherwise sync the word false
 
   port.postMessage({descriptionMsg: "f"});
 
@@ -244,7 +214,7 @@ function switch6Function(){ //function to set the switch and sync it
 };
 
 
-//for the first button 
+//for the first button
 button.addEventListener("click", function(e) {
   var top = button.offsetTop + e.offsetY;
   var left = button.offsetLeft + e.offsetX;
@@ -258,7 +228,7 @@ button.addEventListener("click", function(e) {
 });
 
 
-//for button 2 
+//for button 2
 button2.addEventListener('click', function (e) {
   var top2 = button2.offsetTop + e.offsetY;
   var left2 = button2.offsetLeft + e.offsetX;
@@ -270,7 +240,7 @@ console.log("yes");
   wrapper2.classList.toggle('dark');
 });
 
-//button 3 
+//button 3
 button3.addEventListener('click', function (e) {
   var top3 = button3.offsetTop + e.offsetY;
   var left3 = button3.offsetLeft + e.offsetX;
@@ -282,7 +252,7 @@ button3.addEventListener('click', function (e) {
   wrapper3.classList.toggle('dark');
 });
 
-//button 4 
+//button 4
 button4.addEventListener('click', function (e) {
   var top4 = button4.offsetTop + e.offsetY;
   var left4 = button4.offsetLeft + e.offsetX;
@@ -307,7 +277,7 @@ button5.addEventListener('click', function (e) {
   wrapper5.classList.toggle('dark');
 });
 
-//button 6 
+//button 6
 button6.addEventListener('click', function (e) {
   var top6 = button6.offsetTop + e.offsetY;
   var left6 = button6.offsetLeft + e.offsetX;

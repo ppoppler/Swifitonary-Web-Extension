@@ -14,7 +14,7 @@ chrome.contextMenus.create( {
     id: "Swift",
     title: "Swiftionary",
     contexts: ["selection"]
-   
+
 });
 
 var conOption1;
@@ -22,22 +22,22 @@ var conOption1Checker="";
 chrome.storage.sync.get(["option1"],function(result){ //or could try nesting multiple gets and putting multiple bools as params to one function to create the menu
     console.log("The value is"+result.option1);
    // alert(result.option1);
-   conOption1Checker = String(result.option1); 
-    conOption1 =new String(conOption1Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false 
+   conOption1Checker = String(result.option1);
+    conOption1 =new String(conOption1Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false
     console.log(conOption1);
-    changeMenu(conOption1); //see if that context menu should be created or not 
+    changeMenu(conOption1); //see if that context menu should be created or not
 });
 
-//declaring a new set of variables because get is an asynchronous function 
+//declaring a new set of variables because get is an asynchronous function
 var conOption2;
 var conOption2Checker="";
 chrome.storage.sync.get(["option2"],function(result){ //or could try nesting multiple gets and putting multiple bools as params to one function to create the menu
     console.log("The value is"+result.option2);
    // alert(result.option1);
-   conOption2Checker = String(result.option2); 
-    conOption2 =new String(conOption2Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false 
+   conOption2Checker = String(result.option2);
+    conOption2 =new String(conOption2Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false
     console.log(conOption2);
-    changeMenu2(conOption2); //see if that context menu should be created or not 
+    changeMenu2(conOption2); //see if that context menu should be created or not
 });
 
 
@@ -49,10 +49,10 @@ var conOption3Checker="";
 chrome.storage.sync.get(["option3"],function(result){ //or could try nesting multiple gets and putting multiple bools as params to one function to create the menu
     console.log("The value is"+result.option3);
    // alert(result.option1);
-   conOption3Checker = String(result.option3); 
-    conOption3 =new String(conOption3Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false 
+   conOption3Checker = String(result.option3);
+    conOption3 =new String(conOption3Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false
     console.log(conOption3);
-    changeMenu3(conOption3); //see if that context menu should be created or not 
+    changeMenu3(conOption3); //see if that context menu should be created or not
 });
 
 /**
@@ -63,24 +63,24 @@ var conOption4Checker="";
 chrome.storage.sync.get(["option4"],function(result){ //or could try nesting multiple gets and putting multiple bools as params to one function to create the menu
     console.log("The value is"+result.option4);
    // alert(result.option1);
-   conOption4Checker = String(result.option4); 
-    conOption4 =new String(conOption4Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false 
+   conOption4Checker = String(result.option4);
+    conOption4 =new String(conOption4Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false
     console.log(conOption4);
-    changeMenu4(conOption4); //see if that context menu should be created or not 
+    changeMenu4(conOption4); //see if that context menu should be created or not
 });
 
 /**
- * fifth option 
+ * fifth option
  */
 var conOption5;
 var conOption5Checker="";
 chrome.storage.sync.get(["option5"],function(result){ //or could try nesting multiple gets and putting multiple bools as params to one function to create the menu
     console.log("The value is"+result.option5);
    // alert(result.option1);
-   conOption5Checker = String(result.option5); 
-    conOption5 =new String(conOption5Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false 
+   conOption5Checker = String(result.option5);
+    conOption5 =new String(conOption5Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false
     console.log(conOption5);
-    changeMenu5(conOption5); //see if that context menu should be created or not 
+    changeMenu5(conOption5); //see if that context menu should be created or not
 });
 /**
  * sixth option
@@ -90,14 +90,14 @@ var conOption6Checker="";
 chrome.storage.sync.get(["option6"],function(result){ //or could try nesting multiple gets and putting multiple bools as params to one function to create the menu
     console.log("The value is"+result.option6);
    // alert(result.option1);
-   conOption6Checker = String(result.option6); 
-    conOption6 =new String(conOption6Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false 
+   conOption6Checker = String(result.option6);
+    conOption6 =new String(conOption6Checker).valueOf() === new String("true").valueOf(); //check if the value of the switch was true or false
     console.log(conOption6);
-    changeMenu6(conOption6); //see if that context menu should be created or not 
+    changeMenu6(conOption6); //see if that context menu should be created or not
 });
 //console.log("passed the if statements");
 
-  
+
 
 chrome.contextMenus.onClicked.addListener(function(clickData){
 if(clickData.menuItemId === "Definition" && clickData.selectionText){
@@ -118,29 +118,29 @@ else if(clickData.menuItemId === "Synonym" && clickData.selectionText){
 })
 };
 
-//synchronize for the first option 
+//synchronize for the first option
 function changeMenu(firstOption){
-    if(firstOption === false){ //if false then don't show option 
+    if(firstOption === false){ //if false then don't show option
     console.log("this has hit false");
     }
-    
+
     else if(firstOption === true){ //if true then create the option
     chrome.contextMenus.create( {
         id:"Definition",
         title:"Definition",
         parentId:"Swift",
         contexts:["selection"]
-    
+
     })
     }
 
 };
 
 function changeMenu2(secondOption){
-  if(secondOption === false){ //if false then don't show option 
+  if(secondOption === false){ //if false then don't show option
   console.log("this has hit false");
   }
-  
+
   else if(secondOption === true){ //if true then create the option
     chrome.contextMenus.create( {
       id:"Synonym",
@@ -153,10 +153,10 @@ function changeMenu2(secondOption){
 };
 
 function changeMenu3(thirdOption){
-  if(thirdOption === false){ //if false then don't show option 
+  if(thirdOption === false){ //if false then don't show option
   console.log("this has hit false");
   }
-  
+
   else if(thirdOption === true){ //if true then create the option
     chrome.contextMenus.create( {
       id:"Antonym",
@@ -169,10 +169,10 @@ function changeMenu3(thirdOption){
 };
 
 function changeMenu4(fourthOption){
-  if(fourthOption === false){ //if false then don't show option 
+  if(fourthOption === false){ //if false then don't show option
   console.log("this has hit false");
   }
-  
+
   else if(fourthOption === true){ //if true then create the option
     chrome.contextMenus.create( {
       id:"Slang",
@@ -185,10 +185,10 @@ function changeMenu4(fourthOption){
 };
 
 function changeMenu5(fifthOption){
-  if(fifthOption === false){ //if false then don't show option 
+  if(fifthOption === false){ //if false then don't show option
   console.log("this has hit false");
   }
-  
+
   else if(fifthOption === true){ //if true then create the option
     chrome.contextMenus.create( {
       id:"Spellcheck",
@@ -202,17 +202,17 @@ function changeMenu5(fifthOption){
 
 
 function changeMenu6(sixthOption){
-  if(sixthOption === false){ //if false then don't show option 
+  if(sixthOption === false){ //if false then don't show option
   console.log("this has hit false");
   }
-  
+
   else if(sixthOption === true){ //if true then create the option
     chrome.contextMenus.create( {
       id:"Description",
       title:"Description",
       parentId:"Swift",
       contexts:["selection"]
-  
+
   })
   }
 
@@ -233,7 +233,7 @@ function changeMenu6(sixthOption){
           {
             chrome.contextMenus.remove("Definition");
           }
-          
+
          if(msg.synonymMsg == "t"){
           chrome.contextMenus.create( {
             id:"Synonym",
@@ -244,7 +244,7 @@ function changeMenu6(sixthOption){
          }
          else if(msg.synonymMsg =="f"){
            chrome.contextMenus.remove("Synonym");
-         } 
+         }
 
          if (msg.antonymMsg =="t"){
           chrome.contextMenus.create( {
@@ -285,7 +285,7 @@ function changeMenu6(sixthOption){
             title:"Description",
             parentId:"Swift",
             contexts:["selection"]
-        
+
         })
          }
          else if(msg.descriptionMsg=="f"){

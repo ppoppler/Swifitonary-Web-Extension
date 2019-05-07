@@ -21,11 +21,17 @@ export default class Definition extends Component {
     if (msg.target === "app") {
       if (msg.type === "definition") {
         const definition = await getDefinition(msg.body);
-        console.log(definition);
         this.setState({ text: msg.body, definition: definition });
       }
     }
   }
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
 
   render() {
     return (
@@ -33,15 +39,17 @@ export default class Definition extends Component {
         <h2 className="Montserrat">{this.state.text}</h2>
         {this.state.definition !== null && (
           <div>
-            {console.log(this.state.definition.pronunciation===undefined)}
             {this.state.definition.pronunciation !== undefined && 
               <h3 className="Montserrat">
                 {this.state.definition.pronunciation.all !== null
                   ? this.state.definition.pronunciation.all
                   : this.state.definition.pronunciation}
               </h3>
+              
             }
-            <h3 className="Montserrat">Defintions</h3>
+            <h3 className="Montserrat">Definitions</h3>
+            {this.isEmpty(this.state.definition.results)===true ? <h4 className="Montserrat">There are no definition suggestions for this text</h4>:<div>
+
             {this.state.definition.results.map(info => (
               <div>
                 <hr />
@@ -49,9 +57,15 @@ export default class Definition extends Component {
                 <p className="Montserrat">{info.definition}</p>
               </div>
             ))}
+            
           </div>
+}
+</div>
         )}
       </div>
+        
     );
-  }
+    
+}
+
 }

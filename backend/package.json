@@ -4,7 +4,8 @@
   "description": "Web extension for word and phrase searches",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,9 @@
     "unirest": "^0.5.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.19.0"
+  },
+  "engines ": {
+    "node":"10.15.3"
   }
 }

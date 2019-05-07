@@ -26,18 +26,15 @@ const PORT = process.env.PORT || 5000;
  * Define GET Request from WordsAPI
  */
 app.get("/define", function(req, res) {
-  console.log("DEFINE");
   const word = req.query.word;
-  console.log(word);
   let definition;
   unirest
     .get(`https://wordsapiv1.p.mashape.com/words/${word}`)
     .header(
       "X-Mashape-Key",
-      "0339b5007bmshc2b0c44dc045fdep1e9fd9jsn9c50eeaea8b8"
+      "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d"
     )
     .end(function(result) {
-      console.log(result.body);
       res.send(result.body);
     });
 });
@@ -51,10 +48,9 @@ app.get("/synonym", function(req, res) {
     .get(`https://wordsapiv1.p.mashape.com/words/${word}/synonyms`)
     .header(
       "X-Mashape-Key",
-      "0339b5007bmshc2b0c44dc045fdep1e9fd9jsn9c50eeaea8b8"
+      "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d"
     )
     .end(function(result) {
-      console.log(result.body);
       res.send(result.body);
     });
 });
@@ -68,27 +64,9 @@ app.get("/antonym", function(req, res) {
     .get(`https://wordsapiv1.p.mashape.com/words/${word}/antonyms`)
     .header(
       "X-Mashape-Key",
-      "0339b5007bmshc2b0c44dc045fdep1e9fd9jsn9c50eeaea8b8"
+      "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d"
     )
     .end(function(result) {
-      console.log(result.body);
-      res.send(result.body);
-    });
-});
-
-/**
- * Rhyme GET Request from WordsAPI
- */
-app.get("/rhyme", function(req, res) {
-  const word = req.query.word;
-  unirest
-    .get(`https://wordsapiv1.p.mashape.com/words/${word}/rhymes`)
-    .header(
-      "X-Mashape-Key",
-      "0339b5007bmshc2b0c44dc045fdep1e9fd9jsn9c50eeaea8b8"
-    )
-    .end(function(result) {
-      console.log(result.body);
       res.send(result.body);
     });
 });
@@ -101,17 +79,12 @@ app.get("/spellcheck",function(req,res){
 unirest.get("https://montanaflynn-spellcheck.p.rapidapi.com/check/?text="+word)
 .header("X-RapidAPI-Key", "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d")
 .end(function (result) {
- console.log(result.body);
  
 holdStuff = result.body //hold stuff is a global variable 
- console.log("The word search is: "+holdStuff.original); //print out the first attribute of the object returned
- console.log("The suggestion is: "+holdStuff.suggestion); //print out the second attribute of the object returned
- console.log("The corrections are: "+JSON.stringify(holdStuff.corrections)); //the third attribute is a json object, convert json object to string 
  res.send(result.body);
 
 });
 });
-
 
 /**
  * Urban Dictionary GET Request from an UrbanDictionaryAPI
@@ -122,18 +95,7 @@ app.get("/urban",function(req,res){
   .header("X-RapidAPI-Key", "4294668b27msh51c33875b90f837p1120c4jsna5651c475d5d")
   .end(function (result) {   
     holdStuff =result;
-   var urbanInfo="";
-   urbanInfo+="WORD: "+req.query.word+" ";
-for( i=0;i<holdStuff.body.list.length;i++){
-  if(i==3){ //we only want the first three definitions and examples
-    break;
-  }
-
-  urbanInfo+="DEFINITION: "+holdStuff.body.list[i].definition +" EXAMPLE SENTENCE: " +holdStuff.body.list[i].example+"\n";
-
-}
-res.send(urbanInfo);
-console.log(urbanInfo);
+    res.send(result.body);
 
   });
 });
@@ -144,17 +106,11 @@ app.listen(PORT, () => {
 
 app.get("/wiki",function(req,res){
   const searchTerm = req.query.word; //to do multiple words put "+" in between the words 
-  unirest.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&continue=&titles= " + searchTerm +"&exsentences=6")
+  unirest.get("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&list=querypage&qppage=DisambiguationPageLinks&continue=&titles= " + searchTerm +"&exsentences=6&redirects")
   .end(function(result){
     holdStuff = result;
-    var WikiInfo="";
-    WikiInfo+="Item: " + req.query.word + "";
-
-    WikiInfo+="Info: " + holdStuff;
-
+    
+  var pageId=Object.keys(holdStuff.body.query.pages)[0];
+  res.send(holdStuff.body.query.pages[pageId]);
 });
-
-var pageId=Object.keys(holdStuff.body.query.pages)[0];
-res.send(holdStuff.body.query.pages[pageId].extract);
-
   });
