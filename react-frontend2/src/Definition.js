@@ -13,10 +13,12 @@ export default class Definition extends Component {
     this.sendRequest();
   }
 
+    //sends a message that this type is Definition 
   sendRequest() {
     chrome.runtime.sendMessage({ target: "background", type: "definition" });
   }
 
+    //if it is type definition then wait to get the word and extract the definitions
   async handleMessage(msg) {
     if (msg.target === "app") {
       if (msg.type === "definition") {
@@ -33,6 +35,7 @@ export default class Definition extends Component {
     return true;
 }
 
+//renders the text and format of definition
   render() {
     return (
       <div className="container main-def">
